@@ -75,12 +75,13 @@ header #view #logo h2{
     font-size: 16px;
     line-height: 65px;
 }
+/*==================登录页面=====================*/
 #content{
     font-size: 14px;
     width: 300px;
     padding: 30px 60px;
     margin: 120px auto auto auto;
-    height: 361.6px;
+    height: 400px;
     background-color: rgb(255, 255, 255);
     border:1px #ddd solid;
     box-shadow: 1px 1px 6px 0 rgba(0,0,0,.2);
@@ -101,6 +102,10 @@ header #view #logo h2{
     border:1px solid #ccc;
     line-height: 30px;
     text-indent: 6px;
+}
+#loginPage input:focus {
+    outline: none;
+    border: 1px solid #f20e33;
 }
 .login-choice{
     width: 100%;
@@ -196,9 +201,7 @@ header #view #logo h2{
 }
 
 /*----------personInfo------------*/
-#personInfo{
 
-}
 #userInfoCon-title{
     margin-top: 20px;
     line-height: 30px;
@@ -262,3 +265,41 @@ header #view #logo h2{
     width: 80px;
     border-radius: 3px;
 }
+
+/*=================注册页面====================*/
+
+#signInPage input{
+    width: 100%;
+    height: 30px;
+    margin-top: 20px;
+    border:1px solid #ccc;
+    line-height: 30px;
+    text-indent: 6px;
+}
+#signInPage input:focus {
+    outline: none;
+    border: 1px solid #f20e33;
+}
+.message-code input.code-number{
+    height: 26px;
+    border: 1px solid #ccc;
+    margin-right: 8px;
+    text-indent: 10px;
+    width: 60% !important;
+    margin-right: 5%;
+    box-sizing: border-box;
+}
+.get-code {
+    width: 35%;
+    background: #46b036;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+#signin-btn{ margin-top: 90px!important;}
+
+

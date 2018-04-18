@@ -11,7 +11,10 @@
 </head>
 
 <body>
+
     <div id="warning"></div>
+
+    <!--导航栏部分-->
     <header>
         <div id="view" class="pointer">
             <div id="logo">
@@ -49,7 +52,9 @@
         </div>
         <div class="headerPlaceHolder"></div>
     </header>
-    <section id="loginPage" class="cur">
+
+    <!--登录界面-->
+    <section id="loginPage" class="hide">
         <div id="content">
             <h2 id="login-title">欢迎回到猿计划</h2>
             <input id="username" class="login-input" type="text" placeholder="请输入登录手机号" required />
@@ -72,6 +77,8 @@
             </a>
         </div>
     </section>
+
+    <!--用户信息界面-->
     <section id = "userInfoPage" class="hide">
         <div id="userInfoList" class="fl">
             <nav id="userInfo-nav">
@@ -118,6 +125,20 @@
         </div>
     </section>
 
+    <!--注册界面-->
+    <section id="signInPage" class="0hide">
+        <div id="content">
+            <h2 id="login-title">欢迎回到猿计划</h2>
+            <input id="username-signIn" class="signIn-input" type="text" placeholder="请输入手机号" required />
+            <input id="password-signIn" class="signIn-input" type="text" placeholder="请输入6位以上密码" required />
+            <input id="password-signIn2" class="signIn-input" type="text" placeholder="请输确认密码" required />
+            <div class="message-code">
+                <input type="text" class="code-number fl" placeholder="请输入短信验证码" required/>
+                <span class="get-code fl">获取验证码</span>
+            </div>
+            <div id="signin-btn" class="signin-btn pointer login-btn">注册</div>
+        </div>  
+    </section>
 
 
     <script type="text/javascript" src="js/loginJs.js"></script>
