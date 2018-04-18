@@ -129,20 +129,21 @@ function showFailMsg(info) {
 //onhashchange事件
 window.addEventListener("hashchange", function () {
     console.log("进入onhashchange    " + window.location.hash);
-    switch (window.location.hash) {
-        case "#userInfoPage":
-            {
-                goPage();
-            }
-        case "#loginPage":
-            {
-                goPage();
-            }
-        case "#signInPage":
-            {
-                goPage();
-            }
-    }
+    goPage();
+    // switch (window.location.hash) {
+    //     case "#userInfoPage":
+    //         {
+    //             goPage();
+    //         }
+    //     case "#loginPage":
+    //         {
+    //             goPage();
+    //         }
+    //     case "#signInPage":
+    //         {
+    //             goPage();
+    //         }
+    // }
 }, false);
 
 //页面跳转方法
