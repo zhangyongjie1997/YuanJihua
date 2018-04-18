@@ -8,7 +8,7 @@
 </head>
 <body>
     <p id="test"></p>
-
+    <img src="" alt="test" id="testimg" width="100px" height="100px">
     <script type="text/javascript">
     window.location.hash = "hash";
         var res;
@@ -33,7 +33,7 @@
                     window.res = request.responseText;
                     //字符串转json
                     //res = JSON.parse(res);
-                    console.log("成功"+res);
+                    console.log("成功 res:"+res);
                     oJson(res);
                     
                 }
@@ -41,9 +41,11 @@
             request.send(data);
         }
         function oJson(text){
+            let img = document.getElementById("testimg");
             text = text.substring(1);
             var Obj = JSON.parse(text);
-            console.log(Obj.data);
+            img.src = Obj.data.avatar;
+            console.log("data:"+Obj.data.avatar);
         }
         go();
     </script>

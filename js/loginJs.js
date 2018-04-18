@@ -73,9 +73,28 @@ function ifLogin(obj) {
         navSetup.classList.add("hide");
         navWrite.classList.remove("hide");
         navWrite.classList.add("cur");
+        exUserInfo(obj.data);
         window.location.hash = "userInfoPage";
     } else {
         showFailMsg(obj);
+    }
+}
+
+//填写用户信息
+function exUserInfo(obj){
+    let photo = document.getElementById("personPhoto-img");
+    let tel = document.getElementById("phoneNumber");
+    let name = document.getElementById("personName");
+    let sex = document.getElementsByClassName("sex");
+    photo.src = obj.avatar;
+    tel.innerHTML = obj.mobile;
+    name.value = obj.nick_name;
+    if(obj.sex == 0){
+        sex[0].checked = true;
+        sex[1].checked = false;
+    }else{
+        sex[1].checked = true;
+        sex[0].checked = false;
     }
 }
 
