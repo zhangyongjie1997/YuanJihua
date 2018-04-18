@@ -1,17 +1,32 @@
 var loginBtn = document.getElementById("login-btn");
-var signinBtn = document.getElementById("nav-signIn");
+var signinBtn = document.getElementById("signin-btn");
+var navsigninBtn = document.getElementById("nav-signIn");
 var navloginBtn = document.getElementById("nav-login");
 var div = document.getElementById("warning");
 window.location.hash = "loginPage";
 window.oldUrl = window.location.hash;
 var res;
 
-//注册按钮事件
+//导航栏登录按钮事件
 navloginBtn.addEventListener("click",function(){
     window.location.hash = "loginPage";
 },false);
-signinBtn.addEventListener("click", function () {
+
+//导航栏注册按钮事件
+navsigninBtn.addEventListener("click", function () {
     window.location.hash = "signInPage";
+},false);
+
+//注册按钮事件
+signinBtn.addEventListener("click",function(){
+    var signInName = document.getElementById("username-signIn");
+    var signInPwd = document.getElementById("password-signIn");
+    var signInPwd2 = document.getElementById("password-signIn2");
+    if(signInPwd.value != signInPwd2.value){
+        showFailMsg("两次输入的密码不一致");
+    }else{
+
+    }
 },false);
 
 //登录按钮事件
