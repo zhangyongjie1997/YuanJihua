@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css">
+    <link rel="stylesheet" href="css/loginCss.css">
+</head>
+
+<body>
+    <div id="warning"></div>
+    <header>
+        <div id="view">
+            <div id="logo">
+                <img class="logo-img fl" src="images/logo.png" alt="logo">
+                <h2 class="logo-title fl">猿计划</h2>
+            </div>
+            <nav class="nav fl">
+                <ul class="nav-menu fr">
+                    <li class="nav-menu-items">
+                        <a href="#">未读消息</a>
+                    </li>
+                    <li class="nav-menu-items">
+                        <a href="#">首页</a>
+                    </li>
+                    <li class="nav-menu-items">
+                        <a href="#">知识体系</a>
+                    </li>
+                    <li class="nav-menu-items">
+                        <a href="#">活动中心</a>
+                    </li>
+                    <li class="nav-menu-items">
+                        <a href="#">文章</a>
+                    </li>
+                    <li class="nav-menu-items" id="nav-login">
+                        <a href="#">登录</a>
+                    </li>
+                    <li class="nav-menu-items" id="nav-setup">
+                        <a href="#">注册</a>
+                    </li>
+                    <li class="nav-menu-items hide" id="nav-write">
+                        <a href="#">写文章</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="headerPlaceHolder"></div>
+    </header>
+    <section id="loginPage" class="cur">
+        <div id="content">
+            <h2 id="login-title">欢迎回到猿计划</h2>
+            <input id="username" class="login-input" type="text" placeholder="请输入登录手机号" required />
+            <input id="password" class="login-input" type="text" placeholder="6-16位密码，区分大小写" required />
+            <div class="login-choice">
+                <input type="checkbox" value="autoLogin" class="autoLogin" />
+                <label for="password" class="lable-autoLogin">下次自动登录</label>
+                <p class="login-type">
+                    <span style="cursor: pointer;">忘记密码？</span>
+                    <a href="#">立即注册</a>
+                </p>
+            </div>
+            <div class="login-btn" id="login-btn">登录</div>
+            <p style="text-indent:6px ">使用合作账号登录</p>
+            <a href="https://open.weixin.qq.com/connect/qrconnect?appid=wxc649fbdaa41fc636&response_type=code&scope=snsapi_login&redirect_uri=http%3a%2f%2fweb.li-shang-bin.com&login_type=jssdk&self_redirect=default"
+                id="wechat">
+                <i class="icon-wechat">
+
+                </i>
+            </a>
+        </div>
+    </section>
+    <section id = "userInfoPage" class="hide">
+        <nav id="userInfo-nav">
+            <a href="#" id="userInfo">我的信息</a>
+            <a href="#" id="">修改密码</a>
+            <a href="#" id="">我的帖子</a>
+            <a href="#" id="">我的收藏</a>
+            <a href="#" id="">我的消息</a>
+            <a href="#" id="">我的任务</a>
+        </nav>
+    </section>
+
+
+
+    <script type="text/javascript" src="js/loginJs.js"></script>
+</body>
+
+</html>

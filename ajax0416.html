@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p id="test"></p>
+
+    <script type="text/javascript">
+    window.location.hash = "hash";
+        var res;
+        var oP = document.getElementById("test");
+        //转换json字符串
+        var data = JSON.stringify({
+            "mobile":"13011072992",    //手机号
+            "pwd":"123456",            //密码
+            }
+        );
+        function go(){
+            //新建ajax请求 
+            var request = new XMLHttpRequest(); 
+            //设置请求类型,url,是否异步处理(默认为true)                  
+            request.open('POST','http://yjhapi.agxx.club/iweb/login/check'); 
+            //添加http头,设置使用json提交数据
+            request.setRequestHeader("Content-Type","application/json");
+            //request.setRequestHeader("content-type","application/x-www-form-urlencoded");
+            //设置基于响应的任务                
+            request.onreadystatechange = function(){
+                if(request.readyState == 4 & request.status == 200){
+                    window.res = request.responseText;
+                    //字符串转json
+                    //res = JSON.parse(res);
+                    console.log("成功"+res);
+                    oJson(res);
+                    
+                }
+            };
+            request.send(data);
+        }
+        function oJson(text){
+            text = text.substring(1);
+            var Obj = JSON.parse(text);
+            console.log(Obj.data);
+        }
+        go();
+    </script>
+</body>
+</html>
