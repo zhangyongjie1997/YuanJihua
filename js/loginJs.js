@@ -2,10 +2,17 @@ var loginBtn = document.getElementById("login-btn");
 var signinBtn = document.getElementById("signin-btn");
 var navsigninBtn = document.getElementById("nav-signIn");
 var navloginBtn = document.getElementById("nav-login");
+var signinNow = document.getElementById("signinNow");
 var div = document.getElementById("warning");
+var changePwdBtn = document.getElementById("changePwd-btn");
+var userInfoBtn = document.getElementById("userInfo-btn");
 window.location.hash = "loginPage";
 window.oldUrl = window.location.hash;
 
+//立即注册按钮事件
+signinNow.addEventListener("click",function(){
+    window.location.hash = "signInPage";
+},false);
 
 //导航栏登录按钮事件
 navloginBtn.addEventListener("click", function () {
@@ -16,7 +23,10 @@ navloginBtn.addEventListener("click", function () {
 navsigninBtn.addEventListener("click", function () {
     window.location.hash = "signInPage";
 }, false);
-
+//个人信息页面修改密码按钮
+changePwdBtn.addEventListener("click",function(){
+    window.location.hash = "userInfoPage/changePwd";
+},false);
 //注册按钮事件
 signinBtn.addEventListener("click", function () {
     var signInPwd = document.getElementById("password-signIn");
@@ -29,7 +39,7 @@ signinBtn.addEventListener("click", function () {
         var signInName = document.getElementById("username-signIn");
         var msgCode = document.getElementById("code-number");
         var signinData = {
-            "mobile": signInName.value, //  注册手机号
+            "mobile": signInName.value.substring(1), //  注册手机号
             "pwd": signInPwd.value, //  注册密码
             "sms_code": msgCode.value,
         };
@@ -39,6 +49,7 @@ signinBtn.addEventListener("click", function () {
             if (request.readyState == 4 & request.status == 200) {
                 res = request.responseText;
                 res = JSON.parse(res.substring(1));
+                ifSignin(res);
                 console.log(res);
             }
         };
@@ -77,14 +88,25 @@ loginBtn.addEventListener("click", function () {
     }
 }, false);
 
+//判断是否注册成功
+function ifSignin(obj){
+    if(obj.status == 1){
+        showMsg("注册成功,请登录");
+        window.location.hash = "loginPage";
+    }else{
+        showMsg(obj.info);
+    }
+}
+
+
 //判断登录是否成功
 function ifLogin(obj) {
     if (obj.status == 1) {
         let navLogin = document.querySelector("#nav-login");
-        let navSetup = document.querySelector("#nav-setup");
+        let navSignIn = document.querySelector("#nav-signIn");
         let navWrite = document.querySelector("#nav-write");
         navLogin.classList.add("hide");
-        navSetup.classList.add("hide");
+        navSignIn.classList.add("hide");
         navWrite.classList.remove("hide");
         navWrite.classList.add("cur");
         exUserInfo(obj.data);
@@ -140,7 +162,9 @@ function showMsg(info) {
 
 //onhashchange事件
 window.addEventListener("hashchange", function () {
-    console.log("进入onhashchange    " + window.location.hash);
+    if(window.location.hash.substring(1) == "userInfoPage"){
+
+    }
     goPage();
 }, false);
 
