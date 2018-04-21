@@ -4,10 +4,29 @@ var navsigninBtn = document.getElementById("nav-signIn");
 var navloginBtn = document.getElementById("nav-login");
 var signinNow = document.getElementById("signinNow");
 var div = document.getElementById("warning");
-var changePwdBtn = document.getElementById("changePwd-btn");
 var userInfoBtn = document.getElementById("userInfo-btn");
+var personInfobtn = document.getElementsByClassName("personInfo-btn");
+var changePwdbtn = document.getElementsByClassName("changePwd-btn");
+var myArticlebtn = document.getElementsByClassName("myArticle-btn");
 window.location.hash = "loginPage";
 window.oldUrl = window.location.hash;
+
+//为信息界面按钮添加事件
+for(let i=0;i<personInfobtn.length;i++){
+    personInfobtn[i].addEventListener("click",function(){
+        window.location.hash = "userInfoPage";
+    },false);
+}
+for(let i=0;i<changePwdbtn.length;i++){
+    personInfobtn[i].addEventListener("click",function(){
+        window.location.hash = "changePwdPage";
+    },false);
+}
+for(let i=0;i<myArticlebtn.length;i++){
+    personInfobtn[i].addEventListener("click",function(){
+        window.location.hash = "myArticlePage";
+    },false);
+}
 
 //立即注册按钮事件
 signinNow.addEventListener("click",function(){
@@ -23,10 +42,7 @@ navloginBtn.addEventListener("click", function () {
 navsigninBtn.addEventListener("click", function () {
     window.location.hash = "signInPage";
 }, false);
-//个人信息页面修改密码按钮
-changePwdBtn.addEventListener("click",function(){
-    window.location.hash = "userInfoPage/changePwd";
-},false);
+
 //注册按钮事件
 signinBtn.addEventListener("click", function () {
     var signInPwd = document.getElementById("password-signIn");
@@ -50,7 +66,6 @@ signinBtn.addEventListener("click", function () {
                 res = request.responseText;
                 res = JSON.parse(res.substring(1));
                 ifSignin(res);
-                console.log(res);
             }
         };
         request.send(JSON.stringify(signinData));
@@ -104,7 +119,7 @@ function ifLogin(obj) {
     if (obj.status == 1) {
         let navLogin = document.querySelector("#nav-login");
         let navSignIn = document.querySelector("#nav-signIn");
-        let navWrite = document.querySelector("#nav-write");
+        let navWrite = document.querySelector("#nav-write");   
         navLogin.classList.add("hide");
         navSignIn.classList.add("hide");
         navWrite.classList.remove("hide");
@@ -122,6 +137,8 @@ function exUserInfo(obj) {
     let tel = document.getElementById("phoneNumber");
     let name = document.getElementById("personName");
     let sex = document.getElementsByClassName("sex");
+    let changePwdTel = document.getElementById("changePwd-tel");
+    changePwdTel.innerHTML = obj.mobile;
     photo.src = obj.avatar;
     tel.innerHTML = obj.mobile;
     name.value = obj.nick_name;
@@ -134,7 +151,7 @@ function exUserInfo(obj) {
     }
 }
 
-//登录失败显示登录失败信息
+//显示登录信息动画
 function showMsg(info) {
     var top = -45;
     console.log("进入动画函数");
@@ -162,9 +179,6 @@ function showMsg(info) {
 
 //onhashchange事件
 window.addEventListener("hashchange", function () {
-    if(window.location.hash.substring(1) == "userInfoPage"){
-
-    }
     goPage();
 }, false);
 
