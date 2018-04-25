@@ -146,7 +146,7 @@ header #view #logo h2{
     cursor: pointer;
 }
 
-
+#forgetPwd:hover{color: gray;};
 
 
 /*==============userinfopage================*/

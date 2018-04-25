@@ -1,13 +1,15 @@
+
 var loginBtn = document.getElementById("login-btn");
-var signinBtn = document.getElementById("signin-btn");
-var navsigninBtn = document.getElementById("nav-signIn");
-var navloginBtn = document.getElementById("nav-login");
-var signinNow = document.getElementById("signinNow");
-var div = document.getElementById("warning");
-var userInfoBtn = document.getElementById("userInfo-btn");
-var personInfobtn = document.getElementsByClassName("personInfo-btn");
-var changePwdbtn = document.getElementsByClassName("changePwd-btn");
-var myArticlebtn = document.getElementsByClassName("myArticle-btn");
+    signinBtn = document.getElementById("signin-btn");
+    navsigninBtn = document.getElementById("nav-signIn");
+    navloginBtn = document.getElementById("nav-login");
+    signinNow = document.getElementById("signinNow");
+    div = document.getElementById("warning");
+    userInfoBtn = document.getElementById("userInfo-btn");
+    personInfobtn = document.getElementsByClassName("personInfo-btn");
+    changePwdbtn = document.getElementsByClassName("changePwd-btn");
+    myArticlebtn = document.getElementsByClassName("myArticle-btn");
+    alredySignIn = document.getElementById("alredySignIn");
 window.location.hash = "loginPage";
 window.oldUrl = window.location.hash;
 
@@ -27,6 +29,10 @@ for(let i=0;i<myArticlebtn.length;i++){
         window.location.hash = "myArticlePage";
     },false);
 }
+
+alredySignIn.addEventListener("click",function(){
+    window.location.hash = "loginPage";
+},false);
 
 //立即注册按钮事件
 signinNow.addEventListener("click",function(){
@@ -125,55 +131,62 @@ function ifLogin(obj) {
         // navWrite.classList.remove("hide");
         // navWrite.classList.add("cur");
         exUserInfo(obj.data);
-        window.location.hash = "personInfo";
+        window.location.href = "personInfo.html";
     } else {
         showMsg(obj.info);
     }
 }
 
 //填写用户信息
-function exUserInfo(obj) {
-    let photo = document.getElementById("personPhoto-img");
-    let tel = document.getElementById("phoneNumber");
-    let name = document.getElementById("personName");
-    let sex = document.getElementsByClassName("sex");
-    let changePwdTel = document.getElementById("changePwd-tel");
-    changePwdTel.innerHTML = obj.mobile;
-    photo.src = obj.avatar;
-    tel.innerHTML = obj.mobile;
-    name.value = obj.nick_name;
-    if (obj.sex == 0) {
-        sex[0].checked = true;
-        sex[1].checked = false;
-    } else {
-        sex[1].checked = true;
-        sex[0].checked = false;
-    }
+function exUserInfo(data) {
+    // let photo = document.getElementById("personPhoto-img");
+    // let tel = document.getElementById("phoneNumber");
+    // let name = document.getElementById("personName");
+    // let sex = document.getElementsByClassName("sex");
+    // let changePwdTel = document.getElementById("changePwd-tel");
+    // changePwdTel.innerHTML = obj.mobile;
+    // photo.src = obj.avatar;
+    // tel.innerHTML = obj.mobile;
+    // name.value = obj.nick_name;
+    // if (obj.sex == 0) {
+    //     sex[0].checked = true;
+    //     sex[1].checked = false;
+    // } else {
+    //     sex[1].checked = true;
+    //     sex[0].checked = false;
+    // }
+    localStorage.setItem("tel",data.mobile);
+    localStorage.setItem("photo",data.avatar);
+    localStorage.setItem("sex",data.sex);
+    localStorage.setItem("name",data.nick_name);
 }
 
 //显示登录信息动画
 function showMsg(info) {
-    var top = -45;
-    console.log("进入动画函数");
-    div.innerHTML = info;
-    var time1 = setInterval(function () {
-        top = top + 4;
-        if (top > 100) {
-            clearInterval(time1);
-            var time3 = setTimeout(function () {
-                var nowtop = 100;
-                var time2 = setInterval(function () {
-                    nowtop = nowtop - 4;
-                    if (nowtop < -45) {
-                        clearInterval(time2);
-                        clearTimeout(time3);
-                    }
-                    div.style.top = nowtop + "px";
-                }, 13);
-            }, 1000);
-        }
-        div.style.top = top + "px";
-    }, 13);
+    if (!top){
+        var top = -45;
+        console.log("进入动画函数");
+        div.innerHTML = info;
+        var time1 = setInterval(function () {
+            top = top + 4;
+            if (top > 100) {
+                clearInterval(time1);
+                var time3 = setTimeout(function () {
+                    var nowtop = 100;
+                    var time2 = setInterval(function () {
+                        nowtop = nowtop - 4;
+                        if (nowtop < -45) {
+                            top = undefined;
+                            clearInterval(time2);
+                            clearTimeout(time3);
+                        }
+                        div.style.top = nowtop + "px";
+                    }, 13);
+                }, 1000);
+            }
+            div.style.top = top + "px";
+        }, 13);
+    }
     // window.location.href = "./loginSuccess.html";
 }
 

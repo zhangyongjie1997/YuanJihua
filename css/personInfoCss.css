@@ -1,0 +1,168 @@
+/*==============userinfopage================*/
+.userInfoPage{
+    width: 1100px;
+    margin: 100px auto;
+    height: 1100px;
+}
+
+#userInfo-nav{font-size: 15px;}
+#userInfoList{
+    height: 500px;
+    border-right: 1px solid #bababa;
+    width: 160px;
+    padding-right: 10px;
+}
+.userInfoPage #userInfoList #userInfo-nav a{
+    display: block;
+    margin: 0 auto;
+    text-align: center;
+    color: #020202;
+    font-size: 15px;
+    height: 58px;
+    line-height: 74px;
+    border-bottom: 1px solid #bababa;
+    font-weight: 600;
+    width: 83%;
+}
+
+.items{
+    border-bottom: 1px solid #eee;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    height: 80px;
+}
+
+/*=====================userInfoCon============================*/
+
+.personInfoPage{
+    width: 900px;
+    height: 500px;
+    padding-left: 26px;
+}
+.userInfoLabel label{
+    font-size: 15px;
+    font-weight: 600;
+    padding-right: 20px;
+}
+
+/*----------personInfo------------*/
+
+#userInfoCon-title{
+    margin-top: 20px;
+    line-height: 30px;
+    border-bottom: 1px solid #010101;
+}
+#personPhoto-img{
+    width: 60px;
+    height: 60px;
+    text-align: center;
+    border-radius: 50%;
+    border: 1px solid #ddd;
+    margin-right: 10px;
+}
+.items label{
+    width: 100px;
+}
+.userInfoCon-input{
+    border-color: #8391a5;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-color: #fff;
+    background-image: none;
+    border-radius: 4px;
+    border: 1px solid #bfcbd9;
+        border-top-color: rgb(191, 203, 217);
+        border-right-color: rgb(191, 203, 217);
+        border-bottom-color: rgb(191, 203, 217);
+        border-left-color: rgb(191, 203, 217);
+    box-sizing: border-box;
+    color: #1f2d3d;
+    font-size: inherit;
+    height: 36px;
+    line-height: 1;
+    outline: 0;
+    padding: 3px 10px;
+    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    display: inline-block;
+}
+#personName:hover{border-color: #8391a5;}
+#personName:focus{outline: 0;border-color: #20a0ff;}
+.field input{
+    -webkit-appearance: none;
+    padding: 5px !important;
+    border: 1px solid #ddd;
+    border-radius: 50%;
+    vertical-align: middle;
+}
+.field span {
+    margin-right: 5px;
+    vertical-align: middle;
+}
+.submitUserInfo{
+    background-color: #ea0f2d;
+    color: #fff;
+    margin-top: 25px;
+    text-align: center;
+    height: 26px;
+    line-height: 26px;
+    font-size: 15px;
+    width: 80px;
+    border-radius: 3px;
+}
+.checkbtn:checked{background-color: red;}
+
+/*-----------------修改密码界面--------------------*/
+
+
+/*=================注册页面====================*/
+
+#signInPage input{
+    width: 100%;
+    height: 30px;
+    margin-top: 20px;
+    border:1px solid #ccc;
+    line-height: 30px;
+    text-indent: 6px;
+}
+#signInPage input:focus {
+    outline: none;
+    border: 1px solid #f20e33;
+}
+.message-code input.code-number{
+    height: 26px;
+    border: 1px solid #ccc;
+    margin-right: 8px;
+    text-indent: 10px;
+    width: 60% !important;
+    margin-right: 5%;
+    box-sizing: border-box;
+}
+.get-code {
+    width: 35%;
+    background: #46b036;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    color: #fff;
+    margin-top: 20px;
+    cursor: pointer;
+    border-radius: 6px;
+}
+#signin-btn{ margin-top: 90px!important;}
+
+.get-code[changePwd]{
+    background-color: green;
+    text-align: center;
+    color: #eee;
+    padding: 4px 10px;
+    cursor: pointer;
+    border-radius: 6px;
+    width: 100px;
+    margin-left: 30px;
+    margin-bottom: 20px;
+}

@@ -6,7 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/reset.css" type="text/css">
-    <link rel="stylesheet" href="css/mainCss.css" type="text/css">
+    <link rel="stylesheet" href="css/loginCss.css">
+    <link rel="stylesheet" href="css/personInfoCss.css" type="text/css">
 </head>
 <body>
     <header>
@@ -43,7 +44,7 @@
     </header>
 
     <!-- 个人信息 -->
-    <section id = "userInfoPage" class="userInfoPage hide">
+    <section id = "userInfoPage" class="userInfoPage cur">
         <div id="userInfoList" class="fl">
             <nav id="userInfo-nav">
                 <a href="javascript:void(0)" class="personInfo-btn" style="color: red;">我的信息</a>
@@ -84,11 +85,11 @@
     </section>
 
     <!-- 修改密码 -->
-    <section id = "changePwdPage" class="userInfoPage cur">
+    <section id = "changePwdPage" class="userInfoPage hide">
         <div id="userInfoList" class="fl">
             <nav id="userInfo-nav">
-                <a href="javascript:void(0)" id="userInfo-btn">我的信息</a>
-                <a href="javascript:void(0)" id="changePwd-btn">修改密码</a>
+                <a href="javascript:void(0)" class="personInfo-btn">我的信息</a>
+                <a href="javascript:void(0)" class="changePwd-btn">修改密码</a>
                 <a href="javascript:void(0)" id="">我的帖子</a>
                 <a href="javascript:void(0)" id="">我的收藏</a>
                 <a href="javascript:void(0)" id="">我的消息</a>
@@ -119,5 +120,6 @@
             </div>
         </div> 
     </section>
+    <script type="text/javascript" src="js/userInfoJs.js"></script>
 </body>
 </html>
