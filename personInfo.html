@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/reset.css" type="text/css">
+    <link rel="stylesheet" href="css/mainCss.css" type="text/css">
+</head>
+<body>
+    <header>
+        <div id="view">
+            <div id="logo">
+                <img class="logo-img fl" src="images/logo.png" alt="logo">
+                <h2 class="logo-title fl pointer">猿计划</h2>
+            </div>
+            <nav class="nav fl">
+                <ul class="nav-menu fr">
+                    <li class="nav-menu-items pointer">
+                        <a href="javascript:void(0)">未读消息</a>
+                    </li>
+                    <li class="nav-menu-items pointer">
+                        <a href="javascript:void(0)">首页</a>
+                    </li>
+                    <li class="nav-menu-items pointer">
+                        <a href="javascript:void(0)">知识体系</a>
+                    </li>
+                    <li class="nav-menu-items pointer">
+                        <a href="javascript:void(0)">活动中心</a>
+                    </li>
+                    <li class="nav-menu-items pointer">
+                        <a href="javascript:void(0)">文章</a>
+                    </li>
+                    </li>
+                    <li class="nav-menu-items hide" id="nav-write">
+                        <a href="javascript:void(0)">写文章</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+        <div class="headerPlaceHolder"></div>
+    </header>
+
+    <!-- 个人信息 -->
+    <section id = "userInfoPage" class="userInfoPage hide">
+        <div id="userInfoList" class="fl">
+            <nav id="userInfo-nav">
+                <a href="javascript:void(0)" class="personInfo-btn" style="color: red;">我的信息</a>
+                <a href="javascript:void(0)" class="changePwd-btn" >修改密码</a>
+                <a href="javascript:void(0)" class="myArticle-btn" >我的帖子</a>
+                <a href="javascript:void(0)" class="" >我的收藏</a>
+                <a href="javascript:void(0)" class="" >我的消息</a>
+                <a href="javascript:void(0)" class="" >我的任务</a>
+            </nav>
+        </div>
+        <div class="userInfoLabel userInfoCon fl" id="userInfoCon">
+            <div id="userInfoPage/personInfo" class="personInfoPage">
+                <p id="userInfoCon-title">个人信息</p>
+                <div id="personPhoto" class="items">
+                    <img id="personPhoto-img" src="" alt="" width="60px" height="60px"/>
+                    <span id="changePhoto" class="pointer">更换头像</span>
+                </div>
+                <div id="tel" class="items tel">
+                    <label>注册手机号</label>
+                    <span id="phoneNumber"></span>
+                </div>
+                <div id="name" class="items">
+                    <label>昵称</label>
+                    <input type="text" id="personName" class="userInfoCon-input"/>
+                </div>
+                <div id="sex" class="items">
+                    <label>性别</label>
+                    <div class="field fl">
+                        <span>男</span> 
+                        <input value="1" class="checkbtn pointer sex" type="radio" name="sex"/>
+                        <span>女</span>
+                        <input value="2" class="checkbtn pointer sex" type="radio" name="sex"/>
+                    </div>
+                </div>
+                <div class="submitUserInfo pointer">提交</div>
+            </div>
+        </div> 
+    </section>
+
+    <!-- 修改密码 -->
+    <section id = "changePwdPage" class="userInfoPage cur">
+        <div id="userInfoList" class="fl">
+            <nav id="userInfo-nav">
+                <a href="javascript:void(0)" id="userInfo-btn">我的信息</a>
+                <a href="javascript:void(0)" id="changePwd-btn">修改密码</a>
+                <a href="javascript:void(0)" id="">我的帖子</a>
+                <a href="javascript:void(0)" id="">我的收藏</a>
+                <a href="javascript:void(0)" id="">我的消息</a>
+                <a href="javascript:void(0)" id="">我的任务</a>
+            </nav>
+        </div>
+        <div class="userInfoLabel userInfoCon fl" id="userInfoCon">
+            <div id="userInfoPage/changePwd" class="personInfoPage userInfoLabel cur fl">
+                <p id="userInfoCon-title">修改密码</p>
+                <div id="name" class="items">
+                    <label>手机号</label>
+                    <span id="changePwd-tel"></span>
+                    </div>
+                <div id="name" class="items">
+                    <label>新密码</label>
+                    <input type="text" id="newPwd" class="userInfoCon-input"/>
+                </div>
+                <div id="name" class="items">
+                    <label>确认密码</label>
+                    <input type="text" id="newPwd2" class="userInfoCon-input"/>
+                </div>
+                <div id="name" class="items">
+                    <label>验证码</label>
+                    <input type="text" id="changePwd-code" class="userInfoCon-input"/>
+                    <span changePwd="" class="get-code">获取验证码</span>
+                </div>
+                <div class="submitUserInfo pointer">提交</div>
+            </div>
+        </div> 
+    </section>
+</body>
+</html>
