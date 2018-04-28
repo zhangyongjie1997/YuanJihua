@@ -123,13 +123,7 @@ function ifSignin(obj){
 //判断登录是否成功
 function ifLogin(obj) {
     if (obj.status == 1) {
-        // let navLogin = document.querySelector("#nav-login");
-        // let navSignIn = document.querySelector("#nav-signIn");
-        // let navWrite = document.querySelector("#nav-write");   
-        // navLogin.classList.add("hide");
-        // navSignIn.classList.add("hide");
-        // navWrite.classList.remove("hide");
-        // navWrite.classList.add("cur");
+
         exUserInfo(obj.data);
         window.location.href = "personInfo.html";
     } else {

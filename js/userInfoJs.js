@@ -3,19 +3,28 @@ var photo = document.getElementById("personPhoto-img");
     tel = document.getElementById("phoneNumber");
     name = document.getElementById("personName");
     sex = document.getElementsByClassName("sex");
-    changePwdTel = document.getElementsByClassName("changePwd-tel");
-    changePwdBtn = document.querySelector(".changePwd-btn");
-    personInfoBtn = document.querySelector(".personInfo-btn");
-
+    changePwdTel = document.getElementById("changePwd-tel");
+    changePwdBtn = document.querySelectorAll(".changePwd-btn");
+    userInfoBtn = document.querySelectorAll(".personInfo-btn");
+    myNoteBtn = document.querySelectorAll(".myNote-btn");
 //  .......
 
 initInfo();
-window.location.hash = "personInfoPage";
+window.location.hash = "userInfoPage";
 window.oldUrl = window.location.hash;
 
-changePwdBtn.addEventListener("click",function(){
-    window.location.hash = "changePwdPage";
-},false);
+for(i = 0 ; i < userInfoBtn.length ; i++){
+    userInfoBtn[i].addEventListener("click",function(){
+        window.location.hash = "userInfoPage";
+    },false);
+    changePwdBtn[i].addEventListener("click",function(){
+        window.location.hash = "changePwdPage";
+    },false);
+    myNoteBtn[i].addEventListener("click",function(){
+        window.location.hash = "myNotePage";
+    },false);
+}
+
 
 //onhashchange事件
 window.addEventListener("hashchange", function () {
@@ -24,9 +33,7 @@ window.addEventListener("hashchange", function () {
 
 //页面跳转方法
 function goPage() {
-    let nowHash = window.oldUrl.substring(1);
-    let nowPage = document.getElementById(nowHash);
-    console.log(nowPage+"222"+nowHash);
+    let nowPage = document.getElementById(window.oldUrl.substring(1));
     let goPage = document.getElementById(window.location.hash.substring(1));
     window.oldUrl = window.location.hash;
     nowPage.classList.remove("cur");
@@ -36,10 +43,12 @@ function goPage() {
 }
 
 function initInfo(){
+    let name = localStorage.name;
     console.log(localStorage.name);
     //photo.src = localStorage.photo;
     tel.innerHTML = localStorage.tel;
-    name.value = localStorage.name;
+    changePwdTel.innerHTML = localStorage.tel;
+    name.value = name;
     if (localStorage.sex == 0) {
         sex[0].checked = true;
         sex[1].checked = false;

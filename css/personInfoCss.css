@@ -1,18 +1,23 @@
 /*==============userinfopage================*/
-.userInfoPage{
+
+.userInfoPage {
     width: 1100px;
     margin: 100px auto;
     height: 1100px;
 }
 
-#userInfo-nav{font-size: 15px;}
-#userInfoList{
+#userInfo-nav {
+    font-size: 15px;
+}
+
+#userInfoList {
     height: 500px;
     border-right: 1px solid #bababa;
     width: 160px;
     padding-right: 10px;
 }
-.userInfoPage #userInfoList #userInfo-nav a{
+
+.userInfoPage #userInfoList #userInfo-nav a {
     display: block;
     margin: 0 auto;
     text-align: center;
@@ -25,7 +30,7 @@
     width: 83%;
 }
 
-.items{
+.items {
     border-bottom: 1px solid #eee;
     display: -webkit-box;
     display: -ms-flexbox;
@@ -38,12 +43,13 @@
 
 /*=====================userInfoCon============================*/
 
-.personInfoPage{
+.personInfoPage {
     width: 900px;
     height: 500px;
     padding-left: 26px;
 }
-.userInfoLabel label{
+
+.userInfoLabel label {
     font-size: 15px;
     font-weight: 600;
     padding-right: 20px;
@@ -51,12 +57,13 @@
 
 /*----------personInfo------------*/
 
-#userInfoCon-title{
+#userInfoCon-title {
     margin-top: 20px;
     line-height: 30px;
     border-bottom: 1px solid #010101;
 }
-#personPhoto-img{
+
+#personPhoto-img {
     width: 60px;
     height: 60px;
     text-align: center;
@@ -64,10 +71,12 @@
     border: 1px solid #ddd;
     margin-right: 10px;
 }
-.items label{
+
+.items label {
     width: 100px;
 }
-.userInfoCon-input{
+
+.userInfoCon-input {
     border-color: #8391a5;
     -webkit-appearance: none;
     -moz-appearance: none;
@@ -76,10 +85,10 @@
     background-image: none;
     border-radius: 4px;
     border: 1px solid #bfcbd9;
-        border-top-color: rgb(191, 203, 217);
-        border-right-color: rgb(191, 203, 217);
-        border-bottom-color: rgb(191, 203, 217);
-        border-left-color: rgb(191, 203, 217);
+    border-top-color: rgb(191, 203, 217);
+    border-right-color: rgb(191, 203, 217);
+    border-bottom-color: rgb(191, 203, 217);
+    border-left-color: rgb(191, 203, 217);
     box-sizing: border-box;
     color: #1f2d3d;
     font-size: inherit;
@@ -87,23 +96,33 @@
     line-height: 1;
     outline: 0;
     padding: 3px 10px;
-    transition: border-color .2s cubic-bezier(.645,.045,.355,1);
+    transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
     display: inline-block;
 }
-#personName:hover{border-color: #8391a5;}
-#personName:focus{outline: 0;border-color: #20a0ff;}
-.field input{
+
+#personName:hover {
+    border-color: #8391a5;
+}
+
+#personName:focus {
+    outline: 0;
+    border-color: #20a0ff;
+}
+
+.field input {
     -webkit-appearance: none;
     padding: 5px !important;
     border: 1px solid #ddd;
     border-radius: 50%;
     vertical-align: middle;
 }
+
 .field span {
     margin-right: 5px;
     vertical-align: middle;
 }
-.submitUserInfo{
+
+.submitUserInfo {
     background-color: #ea0f2d;
     color: #fff;
     margin-top: 25px;
@@ -114,55 +133,178 @@
     width: 80px;
     border-radius: 3px;
 }
-.checkbtn:checked{background-color: red;}
+
+.checkbtn:checked {
+    background-color: red;
+}
 
 /*-----------------修改密码界面--------------------*/
 
+/*--------------------我的帖子界面------------------------*/
 
-/*=================注册页面====================*/
-
-#signInPage input{
-    width: 100%;
+.myNote {
+    width: 900px;
     height: 30px;
-    margin-top: 20px;
-    border:1px solid #ccc;
+    display: inline-block;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
     line-height: 30px;
-    text-indent: 6px;
+    border-bottom: 1px solid #010101;
+    font-size: 15px;
 }
-#signInPage input:focus {
-    outline: none;
-    border: 1px solid #f20e33;
+
+.article-title {
+    display: inline;
 }
-.message-code input.code-number{
-    height: 26px;
-    border: 1px solid #ccc;
-    margin-right: 8px;
-    text-indent: 10px;
-    width: 60% !important;
-    margin-right: 5%;
+
+.title-list {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    height: 30px;
+    float: right;
+}
+
+.title-list li {
+    width: 90px;
+    text-align: center;
+    cursor: pointer;
+}
+
+.title-list img {
+    width: 18px;
+}
+
+.article-content-wrap {
+    height: 66px;
+    border-bottom: 1px solid #ddd;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+}
+
+.article-title {
+    color: #000;
+    cursor: pointer;
+}
+
+.article-property {
+    color: #999;
+}
+.itemss{
+    border-bottom: 1px solid #eee;
+}
+.el-pagination .btn-next .el-icon, .el-pagination .btn-prev .el-icon{
+    display: block;
+    font-size: 12px;
+}
+.el-pagination{
+    text-align: center;
+    white-space: nowrap;
+    padding: 2px 5px;
+    color: #48576a;
+}
+.el-pagination button.disabled{
+    color: #e4e4e4;
+    background-color: #fff;
+    cursor: not-allowed;
+}
+.el-pagination .btn-prev {
+    border-radius: 2px 0 0 2px;
+    border-right: 0;
+}
+.el-pagination .btn-next, .el-pagination .btn-prev {
+    background: 50% no-repeat #fff;
+    background-size: 16px;
+    border: 1px solid #d1dbe5;
+    cursor: pointer;
+    margin: 0;
+    color: #97a8be;
+}
+.el-pagination button {
+    border: none;
+    padding: 0 6px;
+    background: 0 0;
+}
+.el-pagination button, .el-pagination span {
+    display: inline-block;
+    font-size: 13px;
+    min-width: 28px;
+    height: 28px;
+    line-height: 28px;
+    vertical-align: top;
     box-sizing: border-box;
 }
-.get-code {
-    width: 35%;
-    background: #46b036;
-    height: 30px;
-    line-height: 30px;
-    text-align: center;
-    color: #fff;
-    margin-top: 20px;
-    cursor: pointer;
-    border-radius: 6px;
+.el-pagination:after, .el-pagination:before {
+    display: table;
+    content: "";
 }
-#signin-btn{ margin-top: 90px!important;}
-
-.get-code[changePwd]{
-    background-color: green;
+[class*=" el-icon-"], [class^=el-icon-] {
+    font-family: element-icons!important;
+    speak: none;
+    font-style: normal;
+    font-weight: 400;
+    font-variant: normal;
+    text-transform: none;
+    line-height: 1;
+    vertical-align: baseline;
+    display: inline-block;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+.el-icon-arrow-left:before {
+    content: "\E601";
+}
+.el-pager {
+    -moz-user-select: none;
+    user-select: none;
+    list-style: none;
+    font-size: 0;
+    padding: 0;
+    vertical-align: top;
+    display: inline-block;
+    margin: 0;
+}
+.el-pager li {
+    padding: 0 4px;
+    border-right: 0;
+    background: #fff;
+    font-size: 13px;
+    min-width: 28px;
+    height: 28px;
+    line-height: 28px;
     text-align: center;
-    color: #eee;
-    padding: 4px 10px;
+}
+.el-pager li.active+li {
+    border-left: 0;
+    padding-left: 5px;
+}
+.el-pager li:last-child {
+    border-right: 1px solid #d1dbe5;
+}
+.el-pager li.active {
+    border-color: transparent;
+    border-color: rgba(226,32,17,.82);
+    background-color: rgba(226,32,17,.82);
+    cursor: default;
+}
+.el-pagination .btn-next, .el-pagination .btn-prev {
+    background: 50% no-repeat #fff;
+    background-size: 16px;
+    border: 1px solid #d1dbe5;
     cursor: pointer;
-    border-radius: 6px;
-    width: 100px;
-    margin-left: 30px;
-    margin-bottom: 20px;
+    margin: 0;
+    color: #97a8be;
+}
+.el-pagination .btn-next {
+    border-radius: 0 2px 2px 0;
+    border-left: 0;
+}
+.el-pagination button:hover {
+    color: rgba(226,32,17,.82);
+    color: #20a0ff;
+}
+.el-pager li:hover {
+    color: rgba(226,32,17,.82);
 }
