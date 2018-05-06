@@ -7,6 +7,8 @@ var photo = document.getElementById("personPhoto-img");
     changePwdBtn = document.querySelectorAll(".changePwd-btn");
     userInfoBtn = document.querySelectorAll(".personInfo-btn");
     myNoteBtn = document.querySelectorAll(".myNote-btn");
+    myCollectionBtn = document.querySelectorAll(".myCollection-btn");
+    myInfoBtn = document.querySelectorAll(".myInfo-btn");
 //  .......
 
 initInfo();
@@ -22,6 +24,12 @@ for(i = 0 ; i < userInfoBtn.length ; i++){
     },false);
     myNoteBtn[i].addEventListener("click",function(){
         window.location.hash = "myNotePage";
+    },false);
+    myCollectionBtn[i].addEventListener("click",function(){
+        window.location.hash = "myCollectionPage";
+    },false);
+    myInfoBtn[i].addEventListener("click",function(){
+        window.location.hash = "myInfoPage";
     },false);
 }
 

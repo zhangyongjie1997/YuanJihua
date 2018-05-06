@@ -7,75 +7,43 @@
     <title>Document</title>
     <style type="text/css">
         *{
-            margin: 0;padding: 0;
-        }
-        #warning{
-            width: 200px;
-            height: 40px;
-            background-color: rgb(8, 167, 8);
-            border: 0px;
-            box-shadow: 0px 0px 5px #bbb;
-            border-radius: 5px;
-            line-height: 40px;
-            text-align: center;
-            position: absolute;
-            top: -45px;
-            left: 50%;
-            margin-left: -100px;
-        }
-        .o{
-            width: 200px;
-            height: 200px;
-            background-color: whitesmoke;
-            float: left;
-            margin: 20px;
-        }
-        #btn{
-            width: 100px;
-            height: 100px;
-            background-color: #555;
+            margin: 0;
+            padding: 0;
             cursor: pointer;
-            float: left;
+        }
+        .a{width: 100px;height: 30px;background-color: #000;}
+        .b{
+            width: 0px;
+            height: 150px;
+            background-color: #999;
+            overflow: hidden;
+            -webkit-transition: all 0.5s;
+            -moz-transition: all 0.5s;
+            -o-transition: all 0.5s;
+            -ms-transition: all 0.5s;
+            transition: all 0.5s;
+        }
+        ul li{
+            list-style: none;
+            text-align: center;
+            line-height: 30px;
+            border-top: 1px solid #ccc;
+        }
+        .a:hover + .b{
+            width: 100px;
         }
     </style>
 </head>
 <body>
-    <div id="warning"></div>
-    <div class="o"></div>
-    <div class="o"></div>
-    <div class="o"></div>
-    <div class="o"></div>
-    <div class="o"></div>
-    <div class="o"></div>
-    <div class="o"></div>
-    <div class="o"></div>
-    <div id="btn"></div>
-
-    <script type="text/javascript">
-        var btn = document.getElementById("btn");
-        var div = document.getElementById("warning");
-        btn.addEventListener("click",function(){
-            div.innerHTML = "登录成功！";
-            let top = -45;
-            let time1 = setInterval(function(){
-                top = top + 2;
-                if(top > 70){
-                    clearInterval(time1);
-                    let time3 = setTimeout(function(){
-                        let nowtop = 70;
-                        let time2 = setInterval(function(){
-                            nowtop = nowtop - 2;
-                            if(nowtop < -45){
-                                clearInterval(time2);
-                                clearTimeout(time3);
-                            }
-                            div.style.top = nowtop + "px";
-                        },13);
-                    },2000);
-                }
-                div.style.top = top + "px";
-            },13);
-        },false);
-    </script>
+    <div class="a"></div>
+    <div class="b">
+        <ul>
+            <li>1</li>
+            <li>2</li>
+            <li>3</li>
+            <li>4</li>
+            <li>5</li>
+        </ul>
+    </div>
 </body>
 </html>

@@ -36,11 +36,23 @@
                         <a href="javascript:void(0)">文章</a>
                     </li>
                     </li>
-                    <li class="nav-menu-items hide" id="nav-write">
+                    <li class="nav-menu-items pointer" id="nav-write">
                         <a href="javascript:void(0)">写文章</a>
                     </li>
                 </ul>
             </nav>
+            <div class="fl pointer" id="nav-photo">
+                <div id="photo-nav-list">
+                    <ul>
+                        <li>个人中心</li>
+                        <li>修改密码</li>
+                        <li>我的收藏</li>
+                        <li>我的帖子</li>
+                        <li>我的任务</li>
+                        <li>退出</li>
+                    </ul>
+                </div>
+            </div>
         </div>
         <div class="headerPlaceHolder"></div>
     </header>
@@ -52,8 +64,8 @@
                 <a href="javascript:void(0)" class="personInfo-btn" style="color: red;">我的信息</a>
                 <a href="javascript:void(0)" class="changePwd-btn">修改密码</a>
                 <a href="javascript:void(0)" class="myNote-btn">我的帖子</a>
-                <a href="javascript:void(0)" class="">我的收藏</a>
-                <a href="javascript:void(0)" class="">我的消息</a>
+                <a href="javascript:void(0)" class="myCollection-btn">我的收藏</a>
+                <a href="javascript:void(0)" class="myInfo-btn">我的消息</a>
                 <a href="javascript:void(0)" class="">我的任务</a>
             </nav>
         </div>
@@ -93,8 +105,8 @@
                 <a href="javascript:void(0)" class="personInfo-btn">我的信息</a>
                 <a href="javascript:void(0)" class="changePwd-btn" style="color: red;">修改密码</a>
                 <a href="javascript:void(0)" class="myNote-btn">我的帖子</a>
-                <a href="javascript:void(0)" class="">我的收藏</a>
-                <a href="javascript:void(0)" class="">我的消息</a>
+                <a href="javascript:void(0)" class="myCollection-btn">我的收藏</a>
+                <a href="javascript:void(0)" class="myInfo-btn">我的消息</a>
                 <a href="javascript:void(0)" class="">我的任务</a>
             </nav>
         </div>
@@ -124,14 +136,14 @@
     </section>
 
     <!-- 我的帖子 -->
-    <section id="myNotePage" class="userInfoPage cur">
+    <section id="myNotePage" class="userInfoPage hide">
         <div id="userInfoList" class="fl">
             <nav id="userInfo-nav">
                 <a href="javascript:void(0)" class="personInfo-btn">我的信息</a>
                 <a href="javascript:void(0)" class="changePwd-btn">修改密码</a>
                 <a href="javascript:void(0)" class="myNote-btn" style="color: red;">我的帖子</a>
-                <a href="javascript:void(0)" class="">我的收藏</a>
-                <a href="javascript:void(0)" class="">我的消息</a>
+                <a href="javascript:void(0)" class="myCollection-btn">我的收藏</a>
+                <a href="javascript:void(0)" class="myInfo-btn">我的消息</a>
                 <a href="javascript:void(0)" class="">我的任务</a>
             </nav>
         </div>
@@ -148,7 +160,7 @@
                     </ul>
                 </div>
                 <div class="article-content-wrap myNote itemss">
-                    <p class="article-title">test</p>
+                    <p class="article-title pointer">test</p>
                     <ul class="article-property title-list">
                         <li>经验分享</li>
                         <li>7</li>
@@ -164,25 +176,234 @@
                         </li>
                     </ul>
                 </div>
-                <div class="block" style="margin-top: 40px;">
+                <div class="article-content-wrap myNote itemss">
+                    <p class="article-title pointer">test</p>
+                    <ul class="article-property title-list">
+                        <li>经验分享</li>
+                        <li>7</li>
+                        <li>6</li>
+                        <li>2018-04-27 20:18:10</li>
+                        <li>
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTA3ODgxNDk4OTQ1IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjI1NzAiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTgiIGhlaWdodD0iMTgiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTg1MC42MjIxNTkgMjkuMTI0OTA0Yy0zMS4zMzE4NDktMzMuMTI2NzU2LTgyLjMzNDI5Ni0zMy4xMjY3NTYtMTEzLjY2MDUwMSAwTDY3Mi41MjU2MzEgOTcuNjAyMjkzbDE1MS40OTQ2NTMgMTYwLjU4MjA3NSA2NC40NDE2NzItNjguNDU0ODEyYzMxLjY3NjE1NS0zMy4xNDM2ODkgMzEuNjc2MTU1LTg3LjAxOTExNiAwLTEyMC4xNjg0NDlsLTM3LjgzOTc5Ny00MC40MzYyMDN6IG0tMjA4LjY4MzMyMSAxMDAuNTE0NzgzbC00MjEuNjg0NTc3IDQ0Ny45MTk1NjhWNTg3LjAxMzU2aDM2LjQxMTc3NHYzNi40MTc0MThoMzYuNDE3NDE4djM2LjQxNzQxOGgzNi40MTc0MTh2MzYuNDExNzc0aDM2LjQxMTc3NFY3NDguMzE4MTEzbDQyNy44ODIwODUtNDU4LjA5MDcwNy0xNTEuODU1ODkyLTE2MC41ODc3MTl6TTE4My44MzY4NDMgNjE2LjUxNjYzNWwtMTUuNjYzMTAzIDE2LjM3OTkzNi01Ny4xNjYwODkgMjE5LjIzODI3NiAyMjMuMjE3NTUtNjkuNTU1NDYyIDEyLjM3ODA4NC0xMy40ODQzNzloLTE3LjEwMjQxNHYtMzYuNDExNzc0aC0zNi40MTc0MTh2LTM2LjQxNzQxOGgtMzYuNDE3NDE4di0zNi40MTE3NzRoLTM2LjQxMTc3NHYtMzYuNDE3NDE4SDE4My44MzY4NDN2LTYuOTE5OTg3eiBtLTQzLjcwNDI4OSAzMzguNjcyOTU4djY4LjgxMDQwN2g3NTguNTI4NzYydi02OC44MTA0MDdIMTQwLjEzMjU1NHoiIHAtaWQ9IjI1NzEiIGZpbGw9IiNjYTRkMmQiPjwvcGF0aD48L3N2Zz4="
+                                alt="" class="edit"> &nbsp;
+                            <span></span>
+                            &nbsp;
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTA0NjA2NDg2Nzc5IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjUgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjQ3MTUiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwLjE5NTMxMjUiIGhlaWdodD0iMjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwvc3R5bGU+PC9kZWZzPjxwYXRoIGQ9Ik04NDkuNzQ4MTc5IDE4MS4xMjk3OTIgNjYxLjU0NzAwMSAxODEuMTI5NzkyIDY2MS41NDcwMDEgMTE1LjY0ODM1OGMwLTI4LjIzNzQ0Mi0yMi45NDM2MjYtNTEuMjEzODE1LTUxLjE2MjY0OC01MS4yMTM4MTVMNDA5LjExNTk1MyA2NC40MzQ1NDJjLTI4LjIyMDA0NSAwLTUxLjE3OTAyMSAyMi45NzYzNzMtNTEuMTc5MDIxIDUxLjIxMzgxNWwwIDY1LjQ4MTQzNS0xODguMTg0ODA0IDBjLTI4LjIwMzY3MiAwLTUxLjE2MjY0OCAyMi45NzUzNS01MS4xNjI2NDggNTEuMjEyNzkybDAgNzkuNjc4NDQzYzAgMjguMjM2NDE5IDIyLjk1ODk3NiA1MS4yMzEyMTIgNTEuMTYyNjQ4IDUxLjIzMTIxMmwzMS40NzYzNjIgMCAwIDQ3My43NjMzNTNjMCA2NS44OTg5NjQgNTMuNTQ5MTEyIDExOS41MTg2ODcgMTE5LjM5NDg2MSAxMTkuNTE4Njg3bDM3OC4yNTI1ODEgMGM2NS44MzAzOTkgMCAxMTkuMzk1ODg1LTUzLjYxOTcyNCAxMTkuMzk1ODg1LTExOS41MTc2NjRMODE4LjI3MTgxNyAzNjMuMjUzMjYybDMxLjQ3NjM2MiAwYzI4LjIxOTAyMiAwIDUxLjE2MjY0OC0yMi45OTQ3OTMgNTEuMTYyNjQ4LTUxLjIzMTIxMmwwLTc5LjY3ODQ0M0M5MDAuOTEwODI2IDIwNC4xMDUxNDIgODc3Ljk2NzIwMSAxODEuMTI5NzkyIDg0OS43NDgxNzkgMTgxLjEyOTc5MnpNNDE0Ljc5NDU1MSAxMjEuMzQ0MzUzbDE4OS45MTEyMDQgMCAwIDU5Ljc4NTQzOUw0MTQuNzk0NTUxIDE4MS4xMjk3OTIgNDE0Ljc5NDU1MSAxMjEuMzQ0MzUzek03NjEuNDE0MTk3IDgzNy4wMTc2MzljMCAzNC41MjQ5MzctMjguMDQ1MDUyIDYyLjYwNjgzLTYyLjUzNzI0MiA2Mi42MDY4M2wtMzc4LjI1MjU4MSAwYy0zNC40OTExNjcgMC02Mi41MzcyNDItMjguMDgwODY5LTYyLjUzNzI0Mi02Mi42MDc4NTNMMjU4LjA4NzEzMyAzNjMuMjUzMjYybDUwMy4zMjgwODcgMEw3NjEuNDE1MjIgODM3LjAxNzYzOXpNODQ0LjA2ODU1NyAzMDYuMzI1MDMxIDE3NS40NDcxIDMwNi4zMjUwMzFsMC02OC4yODU0MjggMjI1LjgyOTk1MSAwYzIuNTQyMDE1IDAuNDAxMTU1IDUuMTczMDYxIDAuNjA5OTIgNy44Mzg5MDEgMC42MDk5MmwyMDEuMjY4NDAxIDBjMi42NjQ4MTcgMCA1LjI3NzQ0My0wLjIwODc2NCA3Ljg1NTI3NS0wLjYwOTkybDIyNS44Mjk5NTEgMEw4NDQuMDY5NTggMzA2LjMyNTAzMXpNNTEwLjg4MTQ3MyA4MTIuMjgyMTE4YzE1LjY5NjIyMyAwIDI4LjQyOTgzMy0xMi43NTEwMDcgMjguNDI5ODMzLTI4LjQ2MzYwNEw1MzkuMzExMzA2IDQ2Mi44NDEwODJjMC0xNS43MTI1OTctMTIuNzMzNjEtMjguNDY0NjI3LTI4LjQyOTgzMy0yOC40NjQ2MjctMTUuNjk0MTc3IDAtMjguNDI3Nzg2IDEyLjc1MjAzLTI4LjQyNzc4NiAyOC40NjQ2MjdMNDgyLjQ1MzY4NiA3ODMuODE3NDkxQzQ4Mi40NTM2ODYgNzk5LjUzMTExMSA0OTUuMTg3Mjk2IDgxMi4yODIxMTggNTEwLjg4MTQ3MyA4MTIuMjgyMTE4ek02NTguMTMwMDE4IDgxMi4yODIxMThjMTUuNzE0NjQ0IDAgMjguNDQ5Mjc3LTEyLjc1MTAwNyAyOC40NDkyNzctMjguNDYzNjA0TDY4Ni41NzkyOTUgNDYyLjg0MTA4MmMwLTE1LjcxMjU5Ny0xMi43MzM2MS0yOC40NjQ2MjctMjguNDQ5Mjc3LTI4LjQ2NDYyNy0xNS42OTMxNTMgMC0yOC40MTE0MTMgMTIuNzUyMDMtMjguNDExNDEzIDI4LjQ2NDYyN0w2MjkuNzE4NjA1IDc4My44MTc0OTFDNjI5LjcxODYwNSA3OTkuNTMxMTExIDY0Mi40MzY4NjUgODEyLjI4MjExOCA2NTguMTMwMDE4IDgxMi4yODIxMTh6TTM2My42MzM5NTEgODEyLjI4MjExOGMxNS42OTQxNzcgMCAyOC40Mjg4MS0xMi43NTEwMDcgMjguNDI4ODEtMjguNDYzNjA0TDM5Mi4wNjI3NiA0NjIuODQxMDgyYzAtMTUuNzEyNTk3LTEyLjczMzYxLTI4LjQ2NDYyNy0yOC40Mjg4MS0yOC40NjQ2MjctMTUuNzEyNTk3IDAtMjguNDI5ODMzIDEyLjc1MjAzLTI4LjQyOTgzMyAyOC40NjQ2MjdMMzM1LjIwNDExNyA3ODMuODE3NDkxQzMzNS4yMDQxMTcgNzk5LjUzMTExMSAzNDcuOTIwMzMgODEyLjI4MjExOCAzNjMuNjMzOTUxIDgxMi4yODIxMTh6IiBwLWlkPSI0NzE2IiBmaWxsPSIjY2E0ZDJkIj48L3BhdGg+PC9zdmc+"
+                                alt="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="article-content-wrap myNote itemss">
+                    <p class="article-title pointer">test</p>
+                    <ul class="article-property title-list">
+                        <li>经验分享</li>
+                        <li>7</li>
+                        <li>6</li>
+                        <li>2018-04-27 20:18:10</li>
+                        <li>
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTA3ODgxNDk4OTQ1IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjI1NzAiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTgiIGhlaWdodD0iMTgiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTg1MC42MjIxNTkgMjkuMTI0OTA0Yy0zMS4zMzE4NDktMzMuMTI2NzU2LTgyLjMzNDI5Ni0zMy4xMjY3NTYtMTEzLjY2MDUwMSAwTDY3Mi41MjU2MzEgOTcuNjAyMjkzbDE1MS40OTQ2NTMgMTYwLjU4MjA3NSA2NC40NDE2NzItNjguNDU0ODEyYzMxLjY3NjE1NS0zMy4xNDM2ODkgMzEuNjc2MTU1LTg3LjAxOTExNiAwLTEyMC4xNjg0NDlsLTM3LjgzOTc5Ny00MC40MzYyMDN6IG0tMjA4LjY4MzMyMSAxMDAuNTE0NzgzbC00MjEuNjg0NTc3IDQ0Ny45MTk1NjhWNTg3LjAxMzU2aDM2LjQxMTc3NHYzNi40MTc0MThoMzYuNDE3NDE4djM2LjQxNzQxOGgzNi40MTc0MTh2MzYuNDExNzc0aDM2LjQxMTc3NFY3NDguMzE4MTEzbDQyNy44ODIwODUtNDU4LjA5MDcwNy0xNTEuODU1ODkyLTE2MC41ODc3MTl6TTE4My44MzY4NDMgNjE2LjUxNjYzNWwtMTUuNjYzMTAzIDE2LjM3OTkzNi01Ny4xNjYwODkgMjE5LjIzODI3NiAyMjMuMjE3NTUtNjkuNTU1NDYyIDEyLjM3ODA4NC0xMy40ODQzNzloLTE3LjEwMjQxNHYtMzYuNDExNzc0aC0zNi40MTc0MTh2LTM2LjQxNzQxOGgtMzYuNDE3NDE4di0zNi40MTE3NzRoLTM2LjQxMTc3NHYtMzYuNDE3NDE4SDE4My44MzY4NDN2LTYuOTE5OTg3eiBtLTQzLjcwNDI4OSAzMzguNjcyOTU4djY4LjgxMDQwN2g3NTguNTI4NzYydi02OC44MTA0MDdIMTQwLjEzMjU1NHoiIHAtaWQ9IjI1NzEiIGZpbGw9IiNjYTRkMmQiPjwvcGF0aD48L3N2Zz4="
+                                alt="" class="edit"> &nbsp;
+                            <span></span>
+                            &nbsp;
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTA0NjA2NDg2Nzc5IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjUgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjQ3MTUiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwLjE5NTMxMjUiIGhlaWdodD0iMjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwvc3R5bGU+PC9kZWZzPjxwYXRoIGQ9Ik04NDkuNzQ4MTc5IDE4MS4xMjk3OTIgNjYxLjU0NzAwMSAxODEuMTI5NzkyIDY2MS41NDcwMDEgMTE1LjY0ODM1OGMwLTI4LjIzNzQ0Mi0yMi45NDM2MjYtNTEuMjEzODE1LTUxLjE2MjY0OC01MS4yMTM4MTVMNDA5LjExNTk1MyA2NC40MzQ1NDJjLTI4LjIyMDA0NSAwLTUxLjE3OTAyMSAyMi45NzYzNzMtNTEuMTc5MDIxIDUxLjIxMzgxNWwwIDY1LjQ4MTQzNS0xODguMTg0ODA0IDBjLTI4LjIwMzY3MiAwLTUxLjE2MjY0OCAyMi45NzUzNS01MS4xNjI2NDggNTEuMjEyNzkybDAgNzkuNjc4NDQzYzAgMjguMjM2NDE5IDIyLjk1ODk3NiA1MS4yMzEyMTIgNTEuMTYyNjQ4IDUxLjIzMTIxMmwzMS40NzYzNjIgMCAwIDQ3My43NjMzNTNjMCA2NS44OTg5NjQgNTMuNTQ5MTEyIDExOS41MTg2ODcgMTE5LjM5NDg2MSAxMTkuNTE4Njg3bDM3OC4yNTI1ODEgMGM2NS44MzAzOTkgMCAxMTkuMzk1ODg1LTUzLjYxOTcyNCAxMTkuMzk1ODg1LTExOS41MTc2NjRMODE4LjI3MTgxNyAzNjMuMjUzMjYybDMxLjQ3NjM2MiAwYzI4LjIxOTAyMiAwIDUxLjE2MjY0OC0yMi45OTQ3OTMgNTEuMTYyNjQ4LTUxLjIzMTIxMmwwLTc5LjY3ODQ0M0M5MDAuOTEwODI2IDIwNC4xMDUxNDIgODc3Ljk2NzIwMSAxODEuMTI5NzkyIDg0OS43NDgxNzkgMTgxLjEyOTc5MnpNNDE0Ljc5NDU1MSAxMjEuMzQ0MzUzbDE4OS45MTEyMDQgMCAwIDU5Ljc4NTQzOUw0MTQuNzk0NTUxIDE4MS4xMjk3OTIgNDE0Ljc5NDU1MSAxMjEuMzQ0MzUzek03NjEuNDE0MTk3IDgzNy4wMTc2MzljMCAzNC41MjQ5MzctMjguMDQ1MDUyIDYyLjYwNjgzLTYyLjUzNzI0MiA2Mi42MDY4M2wtMzc4LjI1MjU4MSAwYy0zNC40OTExNjcgMC02Mi41MzcyNDItMjguMDgwODY5LTYyLjUzNzI0Mi02Mi42MDc4NTNMMjU4LjA4NzEzMyAzNjMuMjUzMjYybDUwMy4zMjgwODcgMEw3NjEuNDE1MjIgODM3LjAxNzYzOXpNODQ0LjA2ODU1NyAzMDYuMzI1MDMxIDE3NS40NDcxIDMwNi4zMjUwMzFsMC02OC4yODU0MjggMjI1LjgyOTk1MSAwYzIuNTQyMDE1IDAuNDAxMTU1IDUuMTczMDYxIDAuNjA5OTIgNy44Mzg5MDEgMC42MDk5MmwyMDEuMjY4NDAxIDBjMi42NjQ4MTcgMCA1LjI3NzQ0My0wLjIwODc2NCA3Ljg1NTI3NS0wLjYwOTkybDIyNS44Mjk5NTEgMEw4NDQuMDY5NTggMzA2LjMyNTAzMXpNNTEwLjg4MTQ3MyA4MTIuMjgyMTE4YzE1LjY5NjIyMyAwIDI4LjQyOTgzMy0xMi43NTEwMDcgMjguNDI5ODMzLTI4LjQ2MzYwNEw1MzkuMzExMzA2IDQ2Mi44NDEwODJjMC0xNS43MTI1OTctMTIuNzMzNjEtMjguNDY0NjI3LTI4LjQyOTgzMy0yOC40NjQ2MjctMTUuNjk0MTc3IDAtMjguNDI3Nzg2IDEyLjc1MjAzLTI4LjQyNzc4NiAyOC40NjQ2MjdMNDgyLjQ1MzY4NiA3ODMuODE3NDkxQzQ4Mi40NTM2ODYgNzk5LjUzMTExMSA0OTUuMTg3Mjk2IDgxMi4yODIxMTggNTEwLjg4MTQ3MyA4MTIuMjgyMTE4ek02NTguMTMwMDE4IDgxMi4yODIxMThjMTUuNzE0NjQ0IDAgMjguNDQ5Mjc3LTEyLjc1MTAwNyAyOC40NDkyNzctMjguNDYzNjA0TDY4Ni41NzkyOTUgNDYyLjg0MTA4MmMwLTE1LjcxMjU5Ny0xMi43MzM2MS0yOC40NjQ2MjctMjguNDQ5Mjc3LTI4LjQ2NDYyNy0xNS42OTMxNTMgMC0yOC40MTE0MTMgMTIuNzUyMDMtMjguNDExNDEzIDI4LjQ2NDYyN0w2MjkuNzE4NjA1IDc4My44MTc0OTFDNjI5LjcxODYwNSA3OTkuNTMxMTExIDY0Mi40MzY4NjUgODEyLjI4MjExOCA2NTguMTMwMDE4IDgxMi4yODIxMTh6TTM2My42MzM5NTEgODEyLjI4MjExOGMxNS42OTQxNzcgMCAyOC40Mjg4MS0xMi43NTEwMDcgMjguNDI4ODEtMjguNDYzNjA0TDM5Mi4wNjI3NiA0NjIuODQxMDgyYzAtMTUuNzEyNTk3LTEyLjczMzYxLTI4LjQ2NDYyNy0yOC40Mjg4MS0yOC40NjQ2MjctMTUuNzEyNTk3IDAtMjguNDI5ODMzIDEyLjc1MjAzLTI4LjQyOTgzMyAyOC40NjQ2MjdMMzM1LjIwNDExNyA3ODMuODE3NDkxQzMzNS4yMDQxMTcgNzk5LjUzMTExMSAzNDcuOTIwMzMgODEyLjI4MjExOCAzNjMuNjMzOTUxIDgxMi4yODIxMTh6IiBwLWlkPSI0NzE2IiBmaWxsPSIjY2E0ZDJkIj48L3BhdGg+PC9zdmc+"
+                                alt="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="article-content-wrap myNote itemss">
+                    <p class="article-title pointer">test</p>
+                    <ul class="article-property title-list">
+                        <li>经验分享</li>
+                        <li>7</li>
+                        <li>6</li>
+                        <li>2018-04-27 20:18:10</li>
+                        <li>
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTA3ODgxNDk4OTQ1IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjI1NzAiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTgiIGhlaWdodD0iMTgiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTg1MC42MjIxNTkgMjkuMTI0OTA0Yy0zMS4zMzE4NDktMzMuMTI2NzU2LTgyLjMzNDI5Ni0zMy4xMjY3NTYtMTEzLjY2MDUwMSAwTDY3Mi41MjU2MzEgOTcuNjAyMjkzbDE1MS40OTQ2NTMgMTYwLjU4MjA3NSA2NC40NDE2NzItNjguNDU0ODEyYzMxLjY3NjE1NS0zMy4xNDM2ODkgMzEuNjc2MTU1LTg3LjAxOTExNiAwLTEyMC4xNjg0NDlsLTM3LjgzOTc5Ny00MC40MzYyMDN6IG0tMjA4LjY4MzMyMSAxMDAuNTE0NzgzbC00MjEuNjg0NTc3IDQ0Ny45MTk1NjhWNTg3LjAxMzU2aDM2LjQxMTc3NHYzNi40MTc0MThoMzYuNDE3NDE4djM2LjQxNzQxOGgzNi40MTc0MTh2MzYuNDExNzc0aDM2LjQxMTc3NFY3NDguMzE4MTEzbDQyNy44ODIwODUtNDU4LjA5MDcwNy0xNTEuODU1ODkyLTE2MC41ODc3MTl6TTE4My44MzY4NDMgNjE2LjUxNjYzNWwtMTUuNjYzMTAzIDE2LjM3OTkzNi01Ny4xNjYwODkgMjE5LjIzODI3NiAyMjMuMjE3NTUtNjkuNTU1NDYyIDEyLjM3ODA4NC0xMy40ODQzNzloLTE3LjEwMjQxNHYtMzYuNDExNzc0aC0zNi40MTc0MTh2LTM2LjQxNzQxOGgtMzYuNDE3NDE4di0zNi40MTE3NzRoLTM2LjQxMTc3NHYtMzYuNDE3NDE4SDE4My44MzY4NDN2LTYuOTE5OTg3eiBtLTQzLjcwNDI4OSAzMzguNjcyOTU4djY4LjgxMDQwN2g3NTguNTI4NzYydi02OC44MTA0MDdIMTQwLjEzMjU1NHoiIHAtaWQ9IjI1NzEiIGZpbGw9IiNjYTRkMmQiPjwvcGF0aD48L3N2Zz4="
+                                alt="" class="edit"> &nbsp;
+                            <span></span>
+                            &nbsp;
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTA0NjA2NDg2Nzc5IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjUgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjQ3MTUiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwLjE5NTMxMjUiIGhlaWdodD0iMjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwvc3R5bGU+PC9kZWZzPjxwYXRoIGQ9Ik04NDkuNzQ4MTc5IDE4MS4xMjk3OTIgNjYxLjU0NzAwMSAxODEuMTI5NzkyIDY2MS41NDcwMDEgMTE1LjY0ODM1OGMwLTI4LjIzNzQ0Mi0yMi45NDM2MjYtNTEuMjEzODE1LTUxLjE2MjY0OC01MS4yMTM4MTVMNDA5LjExNTk1MyA2NC40MzQ1NDJjLTI4LjIyMDA0NSAwLTUxLjE3OTAyMSAyMi45NzYzNzMtNTEuMTc5MDIxIDUxLjIxMzgxNWwwIDY1LjQ4MTQzNS0xODguMTg0ODA0IDBjLTI4LjIwMzY3MiAwLTUxLjE2MjY0OCAyMi45NzUzNS01MS4xNjI2NDggNTEuMjEyNzkybDAgNzkuNjc4NDQzYzAgMjguMjM2NDE5IDIyLjk1ODk3NiA1MS4yMzEyMTIgNTEuMTYyNjQ4IDUxLjIzMTIxMmwzMS40NzYzNjIgMCAwIDQ3My43NjMzNTNjMCA2NS44OTg5NjQgNTMuNTQ5MTEyIDExOS41MTg2ODcgMTE5LjM5NDg2MSAxMTkuNTE4Njg3bDM3OC4yNTI1ODEgMGM2NS44MzAzOTkgMCAxMTkuMzk1ODg1LTUzLjYxOTcyNCAxMTkuMzk1ODg1LTExOS41MTc2NjRMODE4LjI3MTgxNyAzNjMuMjUzMjYybDMxLjQ3NjM2MiAwYzI4LjIxOTAyMiAwIDUxLjE2MjY0OC0yMi45OTQ3OTMgNTEuMTYyNjQ4LTUxLjIzMTIxMmwwLTc5LjY3ODQ0M0M5MDAuOTEwODI2IDIwNC4xMDUxNDIgODc3Ljk2NzIwMSAxODEuMTI5NzkyIDg0OS43NDgxNzkgMTgxLjEyOTc5MnpNNDE0Ljc5NDU1MSAxMjEuMzQ0MzUzbDE4OS45MTEyMDQgMCAwIDU5Ljc4NTQzOUw0MTQuNzk0NTUxIDE4MS4xMjk3OTIgNDE0Ljc5NDU1MSAxMjEuMzQ0MzUzek03NjEuNDE0MTk3IDgzNy4wMTc2MzljMCAzNC41MjQ5MzctMjguMDQ1MDUyIDYyLjYwNjgzLTYyLjUzNzI0MiA2Mi42MDY4M2wtMzc4LjI1MjU4MSAwYy0zNC40OTExNjcgMC02Mi41MzcyNDItMjguMDgwODY5LTYyLjUzNzI0Mi02Mi42MDc4NTNMMjU4LjA4NzEzMyAzNjMuMjUzMjYybDUwMy4zMjgwODcgMEw3NjEuNDE1MjIgODM3LjAxNzYzOXpNODQ0LjA2ODU1NyAzMDYuMzI1MDMxIDE3NS40NDcxIDMwNi4zMjUwMzFsMC02OC4yODU0MjggMjI1LjgyOTk1MSAwYzIuNTQyMDE1IDAuNDAxMTU1IDUuMTczMDYxIDAuNjA5OTIgNy44Mzg5MDEgMC42MDk5MmwyMDEuMjY4NDAxIDBjMi42NjQ4MTcgMCA1LjI3NzQ0My0wLjIwODc2NCA3Ljg1NTI3NS0wLjYwOTkybDIyNS44Mjk5NTEgMEw4NDQuMDY5NTggMzA2LjMyNTAzMXpNNTEwLjg4MTQ3MyA4MTIuMjgyMTE4YzE1LjY5NjIyMyAwIDI4LjQyOTgzMy0xMi43NTEwMDcgMjguNDI5ODMzLTI4LjQ2MzYwNEw1MzkuMzExMzA2IDQ2Mi44NDEwODJjMC0xNS43MTI1OTctMTIuNzMzNjEtMjguNDY0NjI3LTI4LjQyOTgzMy0yOC40NjQ2MjctMTUuNjk0MTc3IDAtMjguNDI3Nzg2IDEyLjc1MjAzLTI4LjQyNzc4NiAyOC40NjQ2MjdMNDgyLjQ1MzY4NiA3ODMuODE3NDkxQzQ4Mi40NTM2ODYgNzk5LjUzMTExMSA0OTUuMTg3Mjk2IDgxMi4yODIxMTggNTEwLjg4MTQ3MyA4MTIuMjgyMTE4ek02NTguMTMwMDE4IDgxMi4yODIxMThjMTUuNzE0NjQ0IDAgMjguNDQ5Mjc3LTEyLjc1MTAwNyAyOC40NDkyNzctMjguNDYzNjA0TDY4Ni41NzkyOTUgNDYyLjg0MTA4MmMwLTE1LjcxMjU5Ny0xMi43MzM2MS0yOC40NjQ2MjctMjguNDQ5Mjc3LTI4LjQ2NDYyNy0xNS42OTMxNTMgMC0yOC40MTE0MTMgMTIuNzUyMDMtMjguNDExNDEzIDI4LjQ2NDYyN0w2MjkuNzE4NjA1IDc4My44MTc0OTFDNjI5LjcxODYwNSA3OTkuNTMxMTExIDY0Mi40MzY4NjUgODEyLjI4MjExOCA2NTguMTMwMDE4IDgxMi4yODIxMTh6TTM2My42MzM5NTEgODEyLjI4MjExOGMxNS42OTQxNzcgMCAyOC40Mjg4MS0xMi43NTEwMDcgMjguNDI4ODEtMjguNDYzNjA0TDM5Mi4wNjI3NiA0NjIuODQxMDgyYzAtMTUuNzEyNTk3LTEyLjczMzYxLTI4LjQ2NDYyNy0yOC40Mjg4MS0yOC40NjQ2MjctMTUuNzEyNTk3IDAtMjguNDI5ODMzIDEyLjc1MjAzLTI4LjQyOTgzMyAyOC40NjQ2MjdMMzM1LjIwNDExNyA3ODMuODE3NDkxQzMzNS4yMDQxMTcgNzk5LjUzMTExMSAzNDcuOTIwMzMgODEyLjI4MjExOCAzNjMuNjMzOTUxIDgxMi4yODIxMTh6IiBwLWlkPSI0NzE2IiBmaWxsPSIjY2E0ZDJkIj48L3BhdGg+PC9zdmc+"
+                                alt="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="block">
                     <div class="el-pagination">
-                        <button type="button" class="btn-prev disabled">
-                            <i class="el-icon el-icon-arrow-left"></i>
-                        </button>
-                        <ul class="el-pager">
-                            <li class="number active">1</li>
-                            <li class="number">2</li>
+                        <ul id="pagination-digg" class="clear" style="margin-left: 300px">
+                            <li class="previous-off">&laquo;Previous</li>
+                            <li class="active">1</li>
+                            <li>
+                                <a href="javascript:void(0)">2</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">3</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">4</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">5</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">6</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">7</a>
+                            </li>
+                            <li class="next">
+                                <a href="javascript:void(0)">Next &raquo;</a>
+                            </li>
                         </ul>
-                        <button type="button" class="btn-next">
-                            <i class="el-icon el-icon-arrow-right"></i>
-                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- 我的收藏 -->
+    <section id="myCollectionPage" class="userInfoPage hide">
+        <div id="userInfoList" class="fl">
+            <nav id="userInfo-nav">
+                <a href="javascript:void(0)" class="personInfo-btn">我的信息</a>
+                <a href="javascript:void(0)" class="changePwd-btn">修改密码</a>
+                <a href="javascript:void(0)" class="myNote-btn">我的帖子</a>
+                <a href="javascript:void(0)" class="myCollection-btn" style="color: red;">我的收藏</a>
+                <a href="javascript:void(0)" class="myInfo-btn">我的消息</a>
+                <a href="javascript:void(0)" class="">我的任务</a>
+            </nav>
+        </div>
+        <div class="userInfoLabel userInfoCon fl" id="userInfoCon">
+            <div id="userInfoPage/myNote" class="personInfoPage userInfoLabel cur fl">
+                <div id="myNote" class="myNote">
+                    <p class="article-title">主题</p>
+                    <ul class="title-list">
+                        <li>分类</li>
+                        <li>回复</li>
+                        <li>浏览</li>
+                        <li>发布时间</li>
+                        <li>操作</li>
+                    </ul>
+                </div>
+                <div class="article-content-wrap myNote itemss">
+                    <p class="article-title pointer">test</p>
+                    <ul class="article-property title-list">
+                        <li>经验分享</li>
+                        <li>7</li>
+                        <li>6</li>
+                        <li>2018-04-27 20:18:10</li>
+                        <li>
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTA3ODgxNDk4OTQ1IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjI1NzAiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTgiIGhlaWdodD0iMTgiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTg1MC42MjIxNTkgMjkuMTI0OTA0Yy0zMS4zMzE4NDktMzMuMTI2NzU2LTgyLjMzNDI5Ni0zMy4xMjY3NTYtMTEzLjY2MDUwMSAwTDY3Mi41MjU2MzEgOTcuNjAyMjkzbDE1MS40OTQ2NTMgMTYwLjU4MjA3NSA2NC40NDE2NzItNjguNDU0ODEyYzMxLjY3NjE1NS0zMy4xNDM2ODkgMzEuNjc2MTU1LTg3LjAxOTExNiAwLTEyMC4xNjg0NDlsLTM3LjgzOTc5Ny00MC40MzYyMDN6IG0tMjA4LjY4MzMyMSAxMDAuNTE0NzgzbC00MjEuNjg0NTc3IDQ0Ny45MTk1NjhWNTg3LjAxMzU2aDM2LjQxMTc3NHYzNi40MTc0MThoMzYuNDE3NDE4djM2LjQxNzQxOGgzNi40MTc0MTh2MzYuNDExNzc0aDM2LjQxMTc3NFY3NDguMzE4MTEzbDQyNy44ODIwODUtNDU4LjA5MDcwNy0xNTEuODU1ODkyLTE2MC41ODc3MTl6TTE4My44MzY4NDMgNjE2LjUxNjYzNWwtMTUuNjYzMTAzIDE2LjM3OTkzNi01Ny4xNjYwODkgMjE5LjIzODI3NiAyMjMuMjE3NTUtNjkuNTU1NDYyIDEyLjM3ODA4NC0xMy40ODQzNzloLTE3LjEwMjQxNHYtMzYuNDExNzc0aC0zNi40MTc0MTh2LTM2LjQxNzQxOGgtMzYuNDE3NDE4di0zNi40MTE3NzRoLTM2LjQxMTc3NHYtMzYuNDE3NDE4SDE4My44MzY4NDN2LTYuOTE5OTg3eiBtLTQzLjcwNDI4OSAzMzguNjcyOTU4djY4LjgxMDQwN2g3NTguNTI4NzYydi02OC44MTA0MDdIMTQwLjEzMjU1NHoiIHAtaWQ9IjI1NzEiIGZpbGw9IiNjYTRkMmQiPjwvcGF0aD48L3N2Zz4="
+                                alt="" class="edit"> &nbsp;
+                            <span></span>
+                            &nbsp;
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTA0NjA2NDg2Nzc5IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjUgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjQ3MTUiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwLjE5NTMxMjUiIGhlaWdodD0iMjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwvc3R5bGU+PC9kZWZzPjxwYXRoIGQ9Ik04NDkuNzQ4MTc5IDE4MS4xMjk3OTIgNjYxLjU0NzAwMSAxODEuMTI5NzkyIDY2MS41NDcwMDEgMTE1LjY0ODM1OGMwLTI4LjIzNzQ0Mi0yMi45NDM2MjYtNTEuMjEzODE1LTUxLjE2MjY0OC01MS4yMTM4MTVMNDA5LjExNTk1MyA2NC40MzQ1NDJjLTI4LjIyMDA0NSAwLTUxLjE3OTAyMSAyMi45NzYzNzMtNTEuMTc5MDIxIDUxLjIxMzgxNWwwIDY1LjQ4MTQzNS0xODguMTg0ODA0IDBjLTI4LjIwMzY3MiAwLTUxLjE2MjY0OCAyMi45NzUzNS01MS4xNjI2NDggNTEuMjEyNzkybDAgNzkuNjc4NDQzYzAgMjguMjM2NDE5IDIyLjk1ODk3NiA1MS4yMzEyMTIgNTEuMTYyNjQ4IDUxLjIzMTIxMmwzMS40NzYzNjIgMCAwIDQ3My43NjMzNTNjMCA2NS44OTg5NjQgNTMuNTQ5MTEyIDExOS41MTg2ODcgMTE5LjM5NDg2MSAxMTkuNTE4Njg3bDM3OC4yNTI1ODEgMGM2NS44MzAzOTkgMCAxMTkuMzk1ODg1LTUzLjYxOTcyNCAxMTkuMzk1ODg1LTExOS41MTc2NjRMODE4LjI3MTgxNyAzNjMuMjUzMjYybDMxLjQ3NjM2MiAwYzI4LjIxOTAyMiAwIDUxLjE2MjY0OC0yMi45OTQ3OTMgNTEuMTYyNjQ4LTUxLjIzMTIxMmwwLTc5LjY3ODQ0M0M5MDAuOTEwODI2IDIwNC4xMDUxNDIgODc3Ljk2NzIwMSAxODEuMTI5NzkyIDg0OS43NDgxNzkgMTgxLjEyOTc5MnpNNDE0Ljc5NDU1MSAxMjEuMzQ0MzUzbDE4OS45MTEyMDQgMCAwIDU5Ljc4NTQzOUw0MTQuNzk0NTUxIDE4MS4xMjk3OTIgNDE0Ljc5NDU1MSAxMjEuMzQ0MzUzek03NjEuNDE0MTk3IDgzNy4wMTc2MzljMCAzNC41MjQ5MzctMjguMDQ1MDUyIDYyLjYwNjgzLTYyLjUzNzI0MiA2Mi42MDY4M2wtMzc4LjI1MjU4MSAwYy0zNC40OTExNjcgMC02Mi41MzcyNDItMjguMDgwODY5LTYyLjUzNzI0Mi02Mi42MDc4NTNMMjU4LjA4NzEzMyAzNjMuMjUzMjYybDUwMy4zMjgwODcgMEw3NjEuNDE1MjIgODM3LjAxNzYzOXpNODQ0LjA2ODU1NyAzMDYuMzI1MDMxIDE3NS40NDcxIDMwNi4zMjUwMzFsMC02OC4yODU0MjggMjI1LjgyOTk1MSAwYzIuNTQyMDE1IDAuNDAxMTU1IDUuMTczMDYxIDAuNjA5OTIgNy44Mzg5MDEgMC42MDk5MmwyMDEuMjY4NDAxIDBjMi42NjQ4MTcgMCA1LjI3NzQ0My0wLjIwODc2NCA3Ljg1NTI3NS0wLjYwOTkybDIyNS44Mjk5NTEgMEw4NDQuMDY5NTggMzA2LjMyNTAzMXpNNTEwLjg4MTQ3MyA4MTIuMjgyMTE4YzE1LjY5NjIyMyAwIDI4LjQyOTgzMy0xMi43NTEwMDcgMjguNDI5ODMzLTI4LjQ2MzYwNEw1MzkuMzExMzA2IDQ2Mi44NDEwODJjMC0xNS43MTI1OTctMTIuNzMzNjEtMjguNDY0NjI3LTI4LjQyOTgzMy0yOC40NjQ2MjctMTUuNjk0MTc3IDAtMjguNDI3Nzg2IDEyLjc1MjAzLTI4LjQyNzc4NiAyOC40NjQ2MjdMNDgyLjQ1MzY4NiA3ODMuODE3NDkxQzQ4Mi40NTM2ODYgNzk5LjUzMTExMSA0OTUuMTg3Mjk2IDgxMi4yODIxMTggNTEwLjg4MTQ3MyA4MTIuMjgyMTE4ek02NTguMTMwMDE4IDgxMi4yODIxMThjMTUuNzE0NjQ0IDAgMjguNDQ5Mjc3LTEyLjc1MTAwNyAyOC40NDkyNzctMjguNDYzNjA0TDY4Ni41NzkyOTUgNDYyLjg0MTA4MmMwLTE1LjcxMjU5Ny0xMi43MzM2MS0yOC40NjQ2MjctMjguNDQ5Mjc3LTI4LjQ2NDYyNy0xNS42OTMxNTMgMC0yOC40MTE0MTMgMTIuNzUyMDMtMjguNDExNDEzIDI4LjQ2NDYyN0w2MjkuNzE4NjA1IDc4My44MTc0OTFDNjI5LjcxODYwNSA3OTkuNTMxMTExIDY0Mi40MzY4NjUgODEyLjI4MjExOCA2NTguMTMwMDE4IDgxMi4yODIxMTh6TTM2My42MzM5NTEgODEyLjI4MjExOGMxNS42OTQxNzcgMCAyOC40Mjg4MS0xMi43NTEwMDcgMjguNDI4ODEtMjguNDYzNjA0TDM5Mi4wNjI3NiA0NjIuODQxMDgyYzAtMTUuNzEyNTk3LTEyLjczMzYxLTI4LjQ2NDYyNy0yOC40Mjg4MS0yOC40NjQ2MjctMTUuNzEyNTk3IDAtMjguNDI5ODMzIDEyLjc1MjAzLTI4LjQyOTgzMyAyOC40NjQ2MjdMMzM1LjIwNDExNyA3ODMuODE3NDkxQzMzNS4yMDQxMTcgNzk5LjUzMTExMSAzNDcuOTIwMzMgODEyLjI4MjExOCAzNjMuNjMzOTUxIDgxMi4yODIxMTh6IiBwLWlkPSI0NzE2IiBmaWxsPSIjY2E0ZDJkIj48L3BhdGg+PC9zdmc+"
+                                alt="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="article-content-wrap myNote itemss">
+                    <p class="article-title pointer">test</p>
+                    <ul class="article-property title-list">
+                        <li>经验分享</li>
+                        <li>7</li>
+                        <li>6</li>
+                        <li>2018-04-27 20:18:10</li>
+                        <li>
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTA3ODgxNDk4OTQ1IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjI1NzAiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTgiIGhlaWdodD0iMTgiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTg1MC42MjIxNTkgMjkuMTI0OTA0Yy0zMS4zMzE4NDktMzMuMTI2NzU2LTgyLjMzNDI5Ni0zMy4xMjY3NTYtMTEzLjY2MDUwMSAwTDY3Mi41MjU2MzEgOTcuNjAyMjkzbDE1MS40OTQ2NTMgMTYwLjU4MjA3NSA2NC40NDE2NzItNjguNDU0ODEyYzMxLjY3NjE1NS0zMy4xNDM2ODkgMzEuNjc2MTU1LTg3LjAxOTExNiAwLTEyMC4xNjg0NDlsLTM3LjgzOTc5Ny00MC40MzYyMDN6IG0tMjA4LjY4MzMyMSAxMDAuNTE0NzgzbC00MjEuNjg0NTc3IDQ0Ny45MTk1NjhWNTg3LjAxMzU2aDM2LjQxMTc3NHYzNi40MTc0MThoMzYuNDE3NDE4djM2LjQxNzQxOGgzNi40MTc0MTh2MzYuNDExNzc0aDM2LjQxMTc3NFY3NDguMzE4MTEzbDQyNy44ODIwODUtNDU4LjA5MDcwNy0xNTEuODU1ODkyLTE2MC41ODc3MTl6TTE4My44MzY4NDMgNjE2LjUxNjYzNWwtMTUuNjYzMTAzIDE2LjM3OTkzNi01Ny4xNjYwODkgMjE5LjIzODI3NiAyMjMuMjE3NTUtNjkuNTU1NDYyIDEyLjM3ODA4NC0xMy40ODQzNzloLTE3LjEwMjQxNHYtMzYuNDExNzc0aC0zNi40MTc0MTh2LTM2LjQxNzQxOGgtMzYuNDE3NDE4di0zNi40MTE3NzRoLTM2LjQxMTc3NHYtMzYuNDE3NDE4SDE4My44MzY4NDN2LTYuOTE5OTg3eiBtLTQzLjcwNDI4OSAzMzguNjcyOTU4djY4LjgxMDQwN2g3NTguNTI4NzYydi02OC44MTA0MDdIMTQwLjEzMjU1NHoiIHAtaWQ9IjI1NzEiIGZpbGw9IiNjYTRkMmQiPjwvcGF0aD48L3N2Zz4="
+                                alt="" class="edit"> &nbsp;
+                            <span></span>
+                            &nbsp;
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTA0NjA2NDg2Nzc5IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjUgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjQ3MTUiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwLjE5NTMxMjUiIGhlaWdodD0iMjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwvc3R5bGU+PC9kZWZzPjxwYXRoIGQ9Ik04NDkuNzQ4MTc5IDE4MS4xMjk3OTIgNjYxLjU0NzAwMSAxODEuMTI5NzkyIDY2MS41NDcwMDEgMTE1LjY0ODM1OGMwLTI4LjIzNzQ0Mi0yMi45NDM2MjYtNTEuMjEzODE1LTUxLjE2MjY0OC01MS4yMTM4MTVMNDA5LjExNTk1MyA2NC40MzQ1NDJjLTI4LjIyMDA0NSAwLTUxLjE3OTAyMSAyMi45NzYzNzMtNTEuMTc5MDIxIDUxLjIxMzgxNWwwIDY1LjQ4MTQzNS0xODguMTg0ODA0IDBjLTI4LjIwMzY3MiAwLTUxLjE2MjY0OCAyMi45NzUzNS01MS4xNjI2NDggNTEuMjEyNzkybDAgNzkuNjc4NDQzYzAgMjguMjM2NDE5IDIyLjk1ODk3NiA1MS4yMzEyMTIgNTEuMTYyNjQ4IDUxLjIzMTIxMmwzMS40NzYzNjIgMCAwIDQ3My43NjMzNTNjMCA2NS44OTg5NjQgNTMuNTQ5MTEyIDExOS41MTg2ODcgMTE5LjM5NDg2MSAxMTkuNTE4Njg3bDM3OC4yNTI1ODEgMGM2NS44MzAzOTkgMCAxMTkuMzk1ODg1LTUzLjYxOTcyNCAxMTkuMzk1ODg1LTExOS41MTc2NjRMODE4LjI3MTgxNyAzNjMuMjUzMjYybDMxLjQ3NjM2MiAwYzI4LjIxOTAyMiAwIDUxLjE2MjY0OC0yMi45OTQ3OTMgNTEuMTYyNjQ4LTUxLjIzMTIxMmwwLTc5LjY3ODQ0M0M5MDAuOTEwODI2IDIwNC4xMDUxNDIgODc3Ljk2NzIwMSAxODEuMTI5NzkyIDg0OS43NDgxNzkgMTgxLjEyOTc5MnpNNDE0Ljc5NDU1MSAxMjEuMzQ0MzUzbDE4OS45MTEyMDQgMCAwIDU5Ljc4NTQzOUw0MTQuNzk0NTUxIDE4MS4xMjk3OTIgNDE0Ljc5NDU1MSAxMjEuMzQ0MzUzek03NjEuNDE0MTk3IDgzNy4wMTc2MzljMCAzNC41MjQ5MzctMjguMDQ1MDUyIDYyLjYwNjgzLTYyLjUzNzI0MiA2Mi42MDY4M2wtMzc4LjI1MjU4MSAwYy0zNC40OTExNjcgMC02Mi41MzcyNDItMjguMDgwODY5LTYyLjUzNzI0Mi02Mi42MDc4NTNMMjU4LjA4NzEzMyAzNjMuMjUzMjYybDUwMy4zMjgwODcgMEw3NjEuNDE1MjIgODM3LjAxNzYzOXpNODQ0LjA2ODU1NyAzMDYuMzI1MDMxIDE3NS40NDcxIDMwNi4zMjUwMzFsMC02OC4yODU0MjggMjI1LjgyOTk1MSAwYzIuNTQyMDE1IDAuNDAxMTU1IDUuMTczMDYxIDAuNjA5OTIgNy44Mzg5MDEgMC42MDk5MmwyMDEuMjY4NDAxIDBjMi42NjQ4MTcgMCA1LjI3NzQ0My0wLjIwODc2NCA3Ljg1NTI3NS0wLjYwOTkybDIyNS44Mjk5NTEgMEw4NDQuMDY5NTggMzA2LjMyNTAzMXpNNTEwLjg4MTQ3MyA4MTIuMjgyMTE4YzE1LjY5NjIyMyAwIDI4LjQyOTgzMy0xMi43NTEwMDcgMjguNDI5ODMzLTI4LjQ2MzYwNEw1MzkuMzExMzA2IDQ2Mi44NDEwODJjMC0xNS43MTI1OTctMTIuNzMzNjEtMjguNDY0NjI3LTI4LjQyOTgzMy0yOC40NjQ2MjctMTUuNjk0MTc3IDAtMjguNDI3Nzg2IDEyLjc1MjAzLTI4LjQyNzc4NiAyOC40NjQ2MjdMNDgyLjQ1MzY4NiA3ODMuODE3NDkxQzQ4Mi40NTM2ODYgNzk5LjUzMTExMSA0OTUuMTg3Mjk2IDgxMi4yODIxMTggNTEwLjg4MTQ3MyA4MTIuMjgyMTE4ek02NTguMTMwMDE4IDgxMi4yODIxMThjMTUuNzE0NjQ0IDAgMjguNDQ5Mjc3LTEyLjc1MTAwNyAyOC40NDkyNzctMjguNDYzNjA0TDY4Ni41NzkyOTUgNDYyLjg0MTA4MmMwLTE1LjcxMjU5Ny0xMi43MzM2MS0yOC40NjQ2MjctMjguNDQ5Mjc3LTI4LjQ2NDYyNy0xNS42OTMxNTMgMC0yOC40MTE0MTMgMTIuNzUyMDMtMjguNDExNDEzIDI4LjQ2NDYyN0w2MjkuNzE4NjA1IDc4My44MTc0OTFDNjI5LjcxODYwNSA3OTkuNTMxMTExIDY0Mi40MzY4NjUgODEyLjI4MjExOCA2NTguMTMwMDE4IDgxMi4yODIxMTh6TTM2My42MzM5NTEgODEyLjI4MjExOGMxNS42OTQxNzcgMCAyOC40Mjg4MS0xMi43NTEwMDcgMjguNDI4ODEtMjguNDYzNjA0TDM5Mi4wNjI3NiA0NjIuODQxMDgyYzAtMTUuNzEyNTk3LTEyLjczMzYxLTI4LjQ2NDYyNy0yOC40Mjg4MS0yOC40NjQ2MjctMTUuNzEyNTk3IDAtMjguNDI5ODMzIDEyLjc1MjAzLTI4LjQyOTgzMyAyOC40NjQ2MjdMMzM1LjIwNDExNyA3ODMuODE3NDkxQzMzNS4yMDQxMTcgNzk5LjUzMTExMSAzNDcuOTIwMzMgODEyLjI4MjExOCAzNjMuNjMzOTUxIDgxMi4yODIxMTh6IiBwLWlkPSI0NzE2IiBmaWxsPSIjY2E0ZDJkIj48L3BhdGg+PC9zdmc+"
+                                alt="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="article-content-wrap myNote itemss">
+                    <p class="article-title pointer">test</p>
+                    <ul class="article-property title-list">
+                        <li>经验分享</li>
+                        <li>7</li>
+                        <li>6</li>
+                        <li>2018-04-27 20:18:10</li>
+                        <li>
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTA3ODgxNDk4OTQ1IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjI1NzAiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTgiIGhlaWdodD0iMTgiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTg1MC42MjIxNTkgMjkuMTI0OTA0Yy0zMS4zMzE4NDktMzMuMTI2NzU2LTgyLjMzNDI5Ni0zMy4xMjY3NTYtMTEzLjY2MDUwMSAwTDY3Mi41MjU2MzEgOTcuNjAyMjkzbDE1MS40OTQ2NTMgMTYwLjU4MjA3NSA2NC40NDE2NzItNjguNDU0ODEyYzMxLjY3NjE1NS0zMy4xNDM2ODkgMzEuNjc2MTU1LTg3LjAxOTExNiAwLTEyMC4xNjg0NDlsLTM3LjgzOTc5Ny00MC40MzYyMDN6IG0tMjA4LjY4MzMyMSAxMDAuNTE0NzgzbC00MjEuNjg0NTc3IDQ0Ny45MTk1NjhWNTg3LjAxMzU2aDM2LjQxMTc3NHYzNi40MTc0MThoMzYuNDE3NDE4djM2LjQxNzQxOGgzNi40MTc0MTh2MzYuNDExNzc0aDM2LjQxMTc3NFY3NDguMzE4MTEzbDQyNy44ODIwODUtNDU4LjA5MDcwNy0xNTEuODU1ODkyLTE2MC41ODc3MTl6TTE4My44MzY4NDMgNjE2LjUxNjYzNWwtMTUuNjYzMTAzIDE2LjM3OTkzNi01Ny4xNjYwODkgMjE5LjIzODI3NiAyMjMuMjE3NTUtNjkuNTU1NDYyIDEyLjM3ODA4NC0xMy40ODQzNzloLTE3LjEwMjQxNHYtMzYuNDExNzc0aC0zNi40MTc0MTh2LTM2LjQxNzQxOGgtMzYuNDE3NDE4di0zNi40MTE3NzRoLTM2LjQxMTc3NHYtMzYuNDE3NDE4SDE4My44MzY4NDN2LTYuOTE5OTg3eiBtLTQzLjcwNDI4OSAzMzguNjcyOTU4djY4LjgxMDQwN2g3NTguNTI4NzYydi02OC44MTA0MDdIMTQwLjEzMjU1NHoiIHAtaWQ9IjI1NzEiIGZpbGw9IiNjYTRkMmQiPjwvcGF0aD48L3N2Zz4="
+                                alt="" class="edit"> &nbsp;
+                            <span></span>
+                            &nbsp;
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTA0NjA2NDg2Nzc5IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjUgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjQ3MTUiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwLjE5NTMxMjUiIGhlaWdodD0iMjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwvc3R5bGU+PC9kZWZzPjxwYXRoIGQ9Ik04NDkuNzQ4MTc5IDE4MS4xMjk3OTIgNjYxLjU0NzAwMSAxODEuMTI5NzkyIDY2MS41NDcwMDEgMTE1LjY0ODM1OGMwLTI4LjIzNzQ0Mi0yMi45NDM2MjYtNTEuMjEzODE1LTUxLjE2MjY0OC01MS4yMTM4MTVMNDA5LjExNTk1MyA2NC40MzQ1NDJjLTI4LjIyMDA0NSAwLTUxLjE3OTAyMSAyMi45NzYzNzMtNTEuMTc5MDIxIDUxLjIxMzgxNWwwIDY1LjQ4MTQzNS0xODguMTg0ODA0IDBjLTI4LjIwMzY3MiAwLTUxLjE2MjY0OCAyMi45NzUzNS01MS4xNjI2NDggNTEuMjEyNzkybDAgNzkuNjc4NDQzYzAgMjguMjM2NDE5IDIyLjk1ODk3NiA1MS4yMzEyMTIgNTEuMTYyNjQ4IDUxLjIzMTIxMmwzMS40NzYzNjIgMCAwIDQ3My43NjMzNTNjMCA2NS44OTg5NjQgNTMuNTQ5MTEyIDExOS41MTg2ODcgMTE5LjM5NDg2MSAxMTkuNTE4Njg3bDM3OC4yNTI1ODEgMGM2NS44MzAzOTkgMCAxMTkuMzk1ODg1LTUzLjYxOTcyNCAxMTkuMzk1ODg1LTExOS41MTc2NjRMODE4LjI3MTgxNyAzNjMuMjUzMjYybDMxLjQ3NjM2MiAwYzI4LjIxOTAyMiAwIDUxLjE2MjY0OC0yMi45OTQ3OTMgNTEuMTYyNjQ4LTUxLjIzMTIxMmwwLTc5LjY3ODQ0M0M5MDAuOTEwODI2IDIwNC4xMDUxNDIgODc3Ljk2NzIwMSAxODEuMTI5NzkyIDg0OS43NDgxNzkgMTgxLjEyOTc5MnpNNDE0Ljc5NDU1MSAxMjEuMzQ0MzUzbDE4OS45MTEyMDQgMCAwIDU5Ljc4NTQzOUw0MTQuNzk0NTUxIDE4MS4xMjk3OTIgNDE0Ljc5NDU1MSAxMjEuMzQ0MzUzek03NjEuNDE0MTk3IDgzNy4wMTc2MzljMCAzNC41MjQ5MzctMjguMDQ1MDUyIDYyLjYwNjgzLTYyLjUzNzI0MiA2Mi42MDY4M2wtMzc4LjI1MjU4MSAwYy0zNC40OTExNjcgMC02Mi41MzcyNDItMjguMDgwODY5LTYyLjUzNzI0Mi02Mi42MDc4NTNMMjU4LjA4NzEzMyAzNjMuMjUzMjYybDUwMy4zMjgwODcgMEw3NjEuNDE1MjIgODM3LjAxNzYzOXpNODQ0LjA2ODU1NyAzMDYuMzI1MDMxIDE3NS40NDcxIDMwNi4zMjUwMzFsMC02OC4yODU0MjggMjI1LjgyOTk1MSAwYzIuNTQyMDE1IDAuNDAxMTU1IDUuMTczMDYxIDAuNjA5OTIgNy44Mzg5MDEgMC42MDk5MmwyMDEuMjY4NDAxIDBjMi42NjQ4MTcgMCA1LjI3NzQ0My0wLjIwODc2NCA3Ljg1NTI3NS0wLjYwOTkybDIyNS44Mjk5NTEgMEw4NDQuMDY5NTggMzA2LjMyNTAzMXpNNTEwLjg4MTQ3MyA4MTIuMjgyMTE4YzE1LjY5NjIyMyAwIDI4LjQyOTgzMy0xMi43NTEwMDcgMjguNDI5ODMzLTI4LjQ2MzYwNEw1MzkuMzExMzA2IDQ2Mi44NDEwODJjMC0xNS43MTI1OTctMTIuNzMzNjEtMjguNDY0NjI3LTI4LjQyOTgzMy0yOC40NjQ2MjctMTUuNjk0MTc3IDAtMjguNDI3Nzg2IDEyLjc1MjAzLTI4LjQyNzc4NiAyOC40NjQ2MjdMNDgyLjQ1MzY4NiA3ODMuODE3NDkxQzQ4Mi40NTM2ODYgNzk5LjUzMTExMSA0OTUuMTg3Mjk2IDgxMi4yODIxMTggNTEwLjg4MTQ3MyA4MTIuMjgyMTE4ek02NTguMTMwMDE4IDgxMi4yODIxMThjMTUuNzE0NjQ0IDAgMjguNDQ5Mjc3LTEyLjc1MTAwNyAyOC40NDkyNzctMjguNDYzNjA0TDY4Ni41NzkyOTUgNDYyLjg0MTA4MmMwLTE1LjcxMjU5Ny0xMi43MzM2MS0yOC40NjQ2MjctMjguNDQ5Mjc3LTI4LjQ2NDYyNy0xNS42OTMxNTMgMC0yOC40MTE0MTMgMTIuNzUyMDMtMjguNDExNDEzIDI4LjQ2NDYyN0w2MjkuNzE4NjA1IDc4My44MTc0OTFDNjI5LjcxODYwNSA3OTkuNTMxMTExIDY0Mi40MzY4NjUgODEyLjI4MjExOCA2NTguMTMwMDE4IDgxMi4yODIxMTh6TTM2My42MzM5NTEgODEyLjI4MjExOGMxNS42OTQxNzcgMCAyOC40Mjg4MS0xMi43NTEwMDcgMjguNDI4ODEtMjguNDYzNjA0TDM5Mi4wNjI3NiA0NjIuODQxMDgyYzAtMTUuNzEyNTk3LTEyLjczMzYxLTI4LjQ2NDYyNy0yOC40Mjg4MS0yOC40NjQ2MjctMTUuNzEyNTk3IDAtMjguNDI5ODMzIDEyLjc1MjAzLTI4LjQyOTgzMyAyOC40NjQ2MjdMMzM1LjIwNDExNyA3ODMuODE3NDkxQzMzNS4yMDQxMTcgNzk5LjUzMTExMSAzNDcuOTIwMzMgODEyLjI4MjExOCAzNjMuNjMzOTUxIDgxMi4yODIxMTh6IiBwLWlkPSI0NzE2IiBmaWxsPSIjY2E0ZDJkIj48L3BhdGg+PC9zdmc+"
+                                alt="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="article-content-wrap myNote itemss">
+                    <p class="article-title pointer">test</p>
+                    <ul class="article-property title-list">
+                        <li>经验分享</li>
+                        <li>7</li>
+                        <li>6</li>
+                        <li>2018-04-27 20:18:10</li>
+                        <li>
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTA3ODgxNDk4OTQ1IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjQgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjI1NzAiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMTgiIGhlaWdodD0iMTgiPjxkZWZzPjxzdHlsZSB0eXBlPSJ0ZXh0L2NzcyI+PC9zdHlsZT48L2RlZnM+PHBhdGggZD0iTTg1MC42MjIxNTkgMjkuMTI0OTA0Yy0zMS4zMzE4NDktMzMuMTI2NzU2LTgyLjMzNDI5Ni0zMy4xMjY3NTYtMTEzLjY2MDUwMSAwTDY3Mi41MjU2MzEgOTcuNjAyMjkzbDE1MS40OTQ2NTMgMTYwLjU4MjA3NSA2NC40NDE2NzItNjguNDU0ODEyYzMxLjY3NjE1NS0zMy4xNDM2ODkgMzEuNjc2MTU1LTg3LjAxOTExNiAwLTEyMC4xNjg0NDlsLTM3LjgzOTc5Ny00MC40MzYyMDN6IG0tMjA4LjY4MzMyMSAxMDAuNTE0NzgzbC00MjEuNjg0NTc3IDQ0Ny45MTk1NjhWNTg3LjAxMzU2aDM2LjQxMTc3NHYzNi40MTc0MThoMzYuNDE3NDE4djM2LjQxNzQxOGgzNi40MTc0MTh2MzYuNDExNzc0aDM2LjQxMTc3NFY3NDguMzE4MTEzbDQyNy44ODIwODUtNDU4LjA5MDcwNy0xNTEuODU1ODkyLTE2MC41ODc3MTl6TTE4My44MzY4NDMgNjE2LjUxNjYzNWwtMTUuNjYzMTAzIDE2LjM3OTkzNi01Ny4xNjYwODkgMjE5LjIzODI3NiAyMjMuMjE3NTUtNjkuNTU1NDYyIDEyLjM3ODA4NC0xMy40ODQzNzloLTE3LjEwMjQxNHYtMzYuNDExNzc0aC0zNi40MTc0MTh2LTM2LjQxNzQxOGgtMzYuNDE3NDE4di0zNi40MTE3NzRoLTM2LjQxMTc3NHYtMzYuNDE3NDE4SDE4My44MzY4NDN2LTYuOTE5OTg3eiBtLTQzLjcwNDI4OSAzMzguNjcyOTU4djY4LjgxMDQwN2g3NTguNTI4NzYydi02OC44MTA0MDdIMTQwLjEzMjU1NHoiIHAtaWQ9IjI1NzEiIGZpbGw9IiNjYTRkMmQiPjwvcGF0aD48L3N2Zz4="
+                                alt="" class="edit"> &nbsp;
+                            <span></span>
+                            &nbsp;
+                            <img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBzdGFuZGFsb25lPSJubyI/PjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+PHN2ZyB0PSIxNTA0NjA2NDg2Nzc5IiBjbGFzcz0iaWNvbiIgc3R5bGU9IiIgdmlld0JveD0iMCAwIDEwMjUgMTAyNCIgdmVyc2lvbj0iMS4xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHAtaWQ9IjQ3MTUiIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iMjAwLjE5NTMxMjUiIGhlaWdodD0iMjAwIj48ZGVmcz48c3R5bGUgdHlwZT0idGV4dC9jc3MiPjwvc3R5bGU+PC9kZWZzPjxwYXRoIGQ9Ik04NDkuNzQ4MTc5IDE4MS4xMjk3OTIgNjYxLjU0NzAwMSAxODEuMTI5NzkyIDY2MS41NDcwMDEgMTE1LjY0ODM1OGMwLTI4LjIzNzQ0Mi0yMi45NDM2MjYtNTEuMjEzODE1LTUxLjE2MjY0OC01MS4yMTM4MTVMNDA5LjExNTk1MyA2NC40MzQ1NDJjLTI4LjIyMDA0NSAwLTUxLjE3OTAyMSAyMi45NzYzNzMtNTEuMTc5MDIxIDUxLjIxMzgxNWwwIDY1LjQ4MTQzNS0xODguMTg0ODA0IDBjLTI4LjIwMzY3MiAwLTUxLjE2MjY0OCAyMi45NzUzNS01MS4xNjI2NDggNTEuMjEyNzkybDAgNzkuNjc4NDQzYzAgMjguMjM2NDE5IDIyLjk1ODk3NiA1MS4yMzEyMTIgNTEuMTYyNjQ4IDUxLjIzMTIxMmwzMS40NzYzNjIgMCAwIDQ3My43NjMzNTNjMCA2NS44OTg5NjQgNTMuNTQ5MTEyIDExOS41MTg2ODcgMTE5LjM5NDg2MSAxMTkuNTE4Njg3bDM3OC4yNTI1ODEgMGM2NS44MzAzOTkgMCAxMTkuMzk1ODg1LTUzLjYxOTcyNCAxMTkuMzk1ODg1LTExOS41MTc2NjRMODE4LjI3MTgxNyAzNjMuMjUzMjYybDMxLjQ3NjM2MiAwYzI4LjIxOTAyMiAwIDUxLjE2MjY0OC0yMi45OTQ3OTMgNTEuMTYyNjQ4LTUxLjIzMTIxMmwwLTc5LjY3ODQ0M0M5MDAuOTEwODI2IDIwNC4xMDUxNDIgODc3Ljk2NzIwMSAxODEuMTI5NzkyIDg0OS43NDgxNzkgMTgxLjEyOTc5MnpNNDE0Ljc5NDU1MSAxMjEuMzQ0MzUzbDE4OS45MTEyMDQgMCAwIDU5Ljc4NTQzOUw0MTQuNzk0NTUxIDE4MS4xMjk3OTIgNDE0Ljc5NDU1MSAxMjEuMzQ0MzUzek03NjEuNDE0MTk3IDgzNy4wMTc2MzljMCAzNC41MjQ5MzctMjguMDQ1MDUyIDYyLjYwNjgzLTYyLjUzNzI0MiA2Mi42MDY4M2wtMzc4LjI1MjU4MSAwYy0zNC40OTExNjcgMC02Mi41MzcyNDItMjguMDgwODY5LTYyLjUzNzI0Mi02Mi42MDc4NTNMMjU4LjA4NzEzMyAzNjMuMjUzMjYybDUwMy4zMjgwODcgMEw3NjEuNDE1MjIgODM3LjAxNzYzOXpNODQ0LjA2ODU1NyAzMDYuMzI1MDMxIDE3NS40NDcxIDMwNi4zMjUwMzFsMC02OC4yODU0MjggMjI1LjgyOTk1MSAwYzIuNTQyMDE1IDAuNDAxMTU1IDUuMTczMDYxIDAuNjA5OTIgNy44Mzg5MDEgMC42MDk5MmwyMDEuMjY4NDAxIDBjMi42NjQ4MTcgMCA1LjI3NzQ0My0wLjIwODc2NCA3Ljg1NTI3NS0wLjYwOTkybDIyNS44Mjk5NTEgMEw4NDQuMDY5NTggMzA2LjMyNTAzMXpNNTEwLjg4MTQ3MyA4MTIuMjgyMTE4YzE1LjY5NjIyMyAwIDI4LjQyOTgzMy0xMi43NTEwMDcgMjguNDI5ODMzLTI4LjQ2MzYwNEw1MzkuMzExMzA2IDQ2Mi44NDEwODJjMC0xNS43MTI1OTctMTIuNzMzNjEtMjguNDY0NjI3LTI4LjQyOTgzMy0yOC40NjQ2MjctMTUuNjk0MTc3IDAtMjguNDI3Nzg2IDEyLjc1MjAzLTI4LjQyNzc4NiAyOC40NjQ2MjdMNDgyLjQ1MzY4NiA3ODMuODE3NDkxQzQ4Mi40NTM2ODYgNzk5LjUzMTExMSA0OTUuMTg3Mjk2IDgxMi4yODIxMTggNTEwLjg4MTQ3MyA4MTIuMjgyMTE4ek02NTguMTMwMDE4IDgxMi4yODIxMThjMTUuNzE0NjQ0IDAgMjguNDQ5Mjc3LTEyLjc1MTAwNyAyOC40NDkyNzctMjguNDYzNjA0TDY4Ni41NzkyOTUgNDYyLjg0MTA4MmMwLTE1LjcxMjU5Ny0xMi43MzM2MS0yOC40NjQ2MjctMjguNDQ5Mjc3LTI4LjQ2NDYyNy0xNS42OTMxNTMgMC0yOC40MTE0MTMgMTIuNzUyMDMtMjguNDExNDEzIDI4LjQ2NDYyN0w2MjkuNzE4NjA1IDc4My44MTc0OTFDNjI5LjcxODYwNSA3OTkuNTMxMTExIDY0Mi40MzY4NjUgODEyLjI4MjExOCA2NTguMTMwMDE4IDgxMi4yODIxMTh6TTM2My42MzM5NTEgODEyLjI4MjExOGMxNS42OTQxNzcgMCAyOC40Mjg4MS0xMi43NTEwMDcgMjguNDI4ODEtMjguNDYzNjA0TDM5Mi4wNjI3NiA0NjIuODQxMDgyYzAtMTUuNzEyNTk3LTEyLjczMzYxLTI4LjQ2NDYyNy0yOC40Mjg4MS0yOC40NjQ2MjctMTUuNzEyNTk3IDAtMjguNDI5ODMzIDEyLjc1MjAzLTI4LjQyOTgzMyAyOC40NjQ2MjdMMzM1LjIwNDExNyA3ODMuODE3NDkxQzMzNS4yMDQxMTcgNzk5LjUzMTExMSAzNDcuOTIwMzMgODEyLjI4MjExOCAzNjMuNjMzOTUxIDgxMi4yODIxMTh6IiBwLWlkPSI0NzE2IiBmaWxsPSIjY2E0ZDJkIj48L3BhdGg+PC9zdmc+"
+                                alt="">
+                        </li>
+                    </ul>
+                </div>
+                <div class="block">
+                    <div class="el-pagination">
+                        <ul id="pagination-digg" class="clear" style="margin-left: 300px">
+                            <li class="previous-off">&laquo;Previous</li>
+                            <li class="active">1</li>
+                            <li>
+                                <a href="javascript:void(0)">2</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">3</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">4</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">5</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">6</a>
+                            </li>
+                            <li>
+                                <a href="javascript:void(0)">7</a>
+                            </li>
+                            <li class="next">
+                                <a href="javascript:void(0)">Next &raquo;</a>
+                            </li>
+                        </ul>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
+    <!-- 我的消息 -->
+    <section id="myInfoPage" class="userInfoPage cur">
+        <div id="userInfoList" class="fl">
+            <nav id="userInfo-nav">
+                <a href="javascript:void(0)" class="personInfo-btn">我的信息</a>
+                <a href="javascript:void(0)" class="changePwd-btn">修改密码</a>
+                <a href="javascript:void(0)" class="myNote-btn">我的帖子</a>
+                <a href="javascript:void(0)" class="myCollection-btn">我的收藏</a>
+                <a href="javascript:void(0)" class="myInfo-btn" style="color: red;">我的消息</a>
+                <a href="javascript:void(0)" class="">我的任务</a>
+            </nav>
+        </div>
+        <div class="userInfoLabel userInfoCon fl" id="userInfoCon">
+            <div id="userInfoPage/myInfo" class="personInfoPage">
+                <p>
+                    <img src="images/info.svg" alt="" width="33px;">
+                </p>
+             </div>   
+        </div>
+    </section>
     <script type="text/javascript" src="js/userInfoJs.js"></script>
 </body>
-
 </html>
