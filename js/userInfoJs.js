@@ -1,14 +1,15 @@
 
-var photo = document.getElementById("personPhoto-img");
-    tel = document.getElementById("phoneNumber");
-    name = document.getElementById("personName");
-    sex = document.getElementsByClassName("sex");
-    changePwdTel = document.getElementById("changePwd-tel");
-    changePwdBtn = document.querySelectorAll(".changePwd-btn");
-    userInfoBtn = document.querySelectorAll(".personInfo-btn");
-    myNoteBtn = document.querySelectorAll(".myNote-btn");
-    myCollectionBtn = document.querySelectorAll(".myCollection-btn");
+var photo = document.getElementById("personPhoto-img"),
+    tel = document.getElementById("phoneNumber"),
+    name = document.getElementById("personName"),
+    sex = document.getElementsByClassName("sex"),
+    changePwdTel = document.getElementById("changePwd-tel"),
+    changePwdBtn = document.querySelectorAll(".changePwd-btn"),
+    userInfoBtn = document.querySelectorAll(".personInfo-btn"),
+    myNoteBtn = document.querySelectorAll(".myNote-btn"),
+    myCollectionBtn = document.querySelectorAll(".myCollection-btn"),
     myInfoBtn = document.querySelectorAll(".myInfo-btn");
+    myTaskBtn = document.querySelectorAll(".myTask-btn");
 //  .......
 
 initInfo();
@@ -30,6 +31,9 @@ for(i = 0 ; i < userInfoBtn.length ; i++){
     },false);
     myInfoBtn[i].addEventListener("click",function(){
         window.location.hash = "myInfoPage";
+    },false);
+    myTaskBtn[i].addEventListener("click",function(){
+        window.location.hash = "myTaskPage";
     },false);
 }
 

@@ -1,15 +1,15 @@
 
 var loginBtn = document.getElementById("login-btn");
-    signinBtn = document.getElementById("signin-btn");
-    navsigninBtn = document.getElementById("nav-signIn");
-    navloginBtn = document.getElementById("nav-login");
-    signinNow = document.getElementById("signinNow");
-    div = document.getElementById("warning");
-    userInfoBtn = document.getElementById("userInfo-btn");
-    personInfobtn = document.getElementsByClassName("personInfo-btn");
-    changePwdbtn = document.getElementsByClassName("changePwd-btn");
-    myArticlebtn = document.getElementsByClassName("myArticle-btn");
-    alredySignIn = document.getElementById("alredySignIn");
+var signinBtn = document.getElementById("signin-btn");
+var navsigninBtn = document.getElementById("nav-signIn");
+var navloginBtn = document.getElementById("nav-login");
+var signinNow = document.getElementById("signinNow");
+var div = document.getElementById("warning");
+var userInfoBtn = document.getElementById("userInfo-btn");
+var personInfobtn = document.getElementsByClassName("personInfo-btn");
+var changePwdbtn = document.getElementsByClassName("changePwd-btn");
+var myArticlebtn = document.getElementsByClassName("myArticle-btn");
+var alredySignIn = document.getElementById("alredySignIn");
 window.location.hash = "loginPage";
 window.oldUrl = window.location.hash;
 
@@ -94,6 +94,7 @@ loginBtn.addEventListener("click", function () {
             "mobile": userName.value,
             "pwd": passWord.value,
         };
+        loginData = JSON.stringify(loginData);
         request.open('POST', 'http://yjhapi.agxx.club/iweb/login/check');
         request.setRequestHeader("Content-Type", "application/json");
         request.onreadystatechange = function () {
@@ -105,7 +106,7 @@ loginBtn.addEventListener("click", function () {
                 console.log(res);
             }
         };
-        request.send(JSON.stringify(loginData));
+        request.send(loginData);
     }
 }, false);
 
