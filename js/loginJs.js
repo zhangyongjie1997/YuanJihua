@@ -54,7 +54,7 @@ signinBtn.addEventListener("click", function () {
     var signInPwd = document.getElementById("password-signIn");
     var signInPwd2 = document.getElementById("password-signIn2");
     if (signInPwd.value != signInPwd2.value) {
-        showMsg("两次输入的密码不一致");
+        $.showMsg("两次输入的密码不一致");
     } else {
         var res;
         var request = new XMLHttpRequest();
@@ -85,7 +85,7 @@ loginBtn.addEventListener("click", function () {
 
     //判断用户名密码是否为空
     if (userName.value == "" || passWord.value == "") {
-        showMsg("请输入用户名和密码");
+        $.showMsg("请输入用户名和密码");
     } else {
         //如果用户名密码不为空则发送请求
         var res;
@@ -113,10 +113,10 @@ loginBtn.addEventListener("click", function () {
 //判断是否注册成功
 function ifSignin(obj){
     if(obj.status == 1){
-        showMsg("注册成功,请登录");
+        $.showMsg("注册成功,请登录");
         window.location.hash = "loginPage";
     }else{
-        showMsg(obj.info);
+        $.showMsg(obj.info);
     }
 }
 
@@ -128,62 +128,19 @@ function ifLogin(obj) {
         exUserInfo(obj.data);
         window.location.href = "personInfo.html";
     } else {
-        showMsg(obj.info);
+        $.showMsg(obj.info);
     }
 }
 
 //填写用户信息
 function exUserInfo(data) {
-    // let photo = document.getElementById("personPhoto-img");
-    // let tel = document.getElementById("phoneNumber");
-    // let name = document.getElementById("personName");
-    // let sex = document.getElementsByClassName("sex");
-    // let changePwdTel = document.getElementById("changePwd-tel");
-    // changePwdTel.innerHTML = obj.mobile;
-    // photo.src = obj.avatar;
-    // tel.innerHTML = obj.mobile;
-    // name.value = obj.nick_name;
-    // if (obj.sex == 0) {
-    //     sex[0].checked = true;
-    //     sex[1].checked = false;
-    // } else {
-    //     sex[1].checked = true;
-    //     sex[0].checked = false;
-    // }
     localStorage.setItem("tel",data.mobile);
     localStorage.setItem("photo",data.avatar);
     localStorage.setItem("sex",data.sex);
     localStorage.setItem("name",data.nick_name);
 }
 
-//显示登录信息动画
-function showMsg(info) {
-    if (!top){
-        var top = -45;
-        console.log("进入动画函数");
-        div.innerHTML = info;
-        var time1 = setInterval(function () {
-            top = top + 4;
-            if (top > 100) {
-                clearInterval(time1);
-                var time3 = setTimeout(function () {
-                    var nowtop = 100;
-                    var time2 = setInterval(function () {
-                        nowtop = nowtop - 4;
-                        if (nowtop < -45) {
-                            top = undefined;
-                            clearInterval(time2);
-                            clearTimeout(time3);
-                        }
-                        div.style.top = nowtop + "px";
-                    }, 13);
-                }, 1000);
-            }
-            div.style.top = top + "px";
-        }, 13);
-    }
-    // window.location.href = "./loginSuccess.html";
-}
+
 
 //onhashchange事件
 window.addEventListener("hashchange", function () {
