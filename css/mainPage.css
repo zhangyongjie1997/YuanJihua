@@ -1,0 +1,52 @@
+#wrap{
+    height: 300px;
+    width: 71.5%;
+    margin: 80px auto;
+    position: relative;
+    overflow: hidden;
+}
+#wrap ul li{
+    /* display: none; */
+    position: absolute;
+    list-style: none;
+    font-size: 0;
+    float: left;
+    left: 100%;
+    top: 0px;
+}
+#wrap #btn div{
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    background-color: rgba(31,45,61,.11);
+    position: absolute;
+    top:135px;
+    text-align: center;
+    line-height: 36px;
+    font-size: 15px;
+    border-radius: 50%;
+    -webkit-transition: all 0.4s;
+    -moz-transition: all 0.4s;
+    -o-transition: all 0.4s;
+    -ms-transition: all 0.4s;
+    transition: all 0.4s;
+}
+#lbtn{left: 16px;}
+#rbtn{right: 16px;}
+#wrap #btn div#lbtn:hover,#wrap #btn div#rbtn:hover{background-color: rgba(170, 170, 170, 0.83);}
+
+
+/*===============文章部分===================*/
+.hot-nav{
+    width: 71.5%;
+    margin:0 auto;
+    padding: 20px 0;
+    border-bottom: 1px solid #000;
+}
+.hot-nav a{
+    color:#2e3135;
+    margin-right: 23px;
+    font-weight: 700;
+}

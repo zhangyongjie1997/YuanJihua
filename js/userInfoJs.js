@@ -16,6 +16,7 @@ var photoMyCollectionBtn = document.getElementById('photo-nav-list-myCollection'
 var photoMyNoteBtn = document.getElementById('photo-nav-list-myNote');
 var photoMyTaskBtn = document.getElementById('photo-nav-list-myTask');
 var photoExitBtn = document.getElementById('photo-nav-list-exit');
+var mian = document.getElementById('nav-main');
 //  .......
 
 initInfo();
@@ -23,7 +24,9 @@ window.location.hash = "userInfoPage";
 window.oldUrl = window.location.hash;
 
 
-
+mian.addEventListener('click',function () {
+    window.location.href = "main.html";
+  },false);
 photoInfoBtn.addEventListener('click',function(){
     window.location.hash = "userInfoPage";    
 },false);
@@ -73,12 +76,12 @@ window.addEventListener("hashchange", function () {
 
 
 function initInfo(){
-    let name = localStorage.name;
+    var nickname = localStorage.name;
     console.log(localStorage.name);
     //photo.src = localStorage.photo;
     tel.innerHTML = localStorage.tel;
     changePwdTel.innerHTML = localStorage.tel;
-    name.value = name;
+    name.value = nickname;
     if (localStorage.sex == 0) {
         sex[0].checked = true;
         sex[1].checked = false;

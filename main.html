@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+、<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -7,6 +7,7 @@
     <title>Document</title>
     <link rel="stylesheet" href="css/reset.css" type="text/css">
     <link rel="stylesheet" href="css/headerCss.css" type="text/css">
+    <link rel="stylesheet" href="css/mainPage.css" type="text/css">
 </head>
 <body>
     <header>
@@ -17,8 +18,8 @@
             </div>
             <nav class="nav fl">
                 <ul class="nav-menu fr">
-                    <li class="nav-menu-items pointer">
-                        <a href="javascript:void(0)">未读消息</a>
+                    <li class="nav-menu-items pointer" id="nav-personInfo">
+                        <a href="javascript:void(0)">个人中心</a>
                     </li>
                     <li class="nav-menu-items pointer">
                         <a href="javascript:void(0)">首页</a>
@@ -53,5 +54,31 @@
         </div>
         <div class="headerPlaceHolder"></div>
     </header>
+    <section>
+        <div id="wrap">
+            <div id="img-box">
+                <ul>
+                    <li><img src="images/1.jpg" alt=""></li>
+                    <li><img src="images/2.jpg" alt=""></li>
+                    <li><img src="images/3.jpg" alt=""></li>
+                    <li><img src="images/4.jpg" alt=""></li>
+                    <li><img src="images/5.jpg" alt=""></li>
+                </ul>
+            </div>
+            
+            <div id="btn">
+                <div id="lbtn"><</div>
+                <div id="rbtn">></div>
+            </div>
+        </div>
+        <div class="hot-section">
+            <div class="hot-nav">
+                <a href="javascript:void(0)" style="color:red;">热门文章</a>
+                <a href="javascript:void(0)">html</a>
+                <a href="javascript:void(0)">css</a>
+            </div>
+        </div>
+    </section>
+    <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>

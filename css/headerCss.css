@@ -90,8 +90,8 @@ header #view #logo h2{
     box-shadow: 
     0px 0px 6px -5px #ccc, 
     0px 0px 0px #ccc, 
-    0px 6px 5px #ccc, 
-    0px 2px 0px #ccc;
+    0px 0px 5px #ccc, 
+    0px 0px 2px #ccc;
     top:58px;
     left: -9px;
     overflow: hidden;
