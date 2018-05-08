@@ -80,6 +80,8 @@ signinBtn.addEventListener("click", function () {
 
 //登录按钮事件
 loginBtn.addEventListener("click", function () {
+    window.location.href = "personInfo.html";
+    
     var userName = document.getElementById("username");
     var passWord = document.getElementById("password");
 
@@ -126,7 +128,6 @@ function ifLogin(obj) {
     if (obj.status == 1) {
 
         exUserInfo(obj.data);
-        window.location.href = "personInfo.html";
     } else {
         $.showMsg(obj.info);
     }

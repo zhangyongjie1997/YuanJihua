@@ -7,7 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
     <link rel="stylesheet" href="css/reset.css" type="text/css">
-    <link rel="stylesheet" href="css/loginCss.css">
+    <link rel="stylesheet" href="css/headerCss.css" type="text/css">
     <link rel="stylesheet" href="css/personInfoCss.css" type="text/css">
 </head>
 
@@ -44,12 +44,12 @@
             <div class="fl pointer" id="nav-photo">
                 <div id="photo-nav-list">
                     <ul>
-                        <li>个人中心</li>
-                        <li>修改密码</li>
-                        <li>我的收藏</li>
-                        <li>我的帖子</li>
-                        <li>我的任务</li>
-                        <li>退出</li>
+                        <li id="photo-nav-list-personInfo">个人中心</li>
+                        <li id="photo-nav-list-changePwd">修改密码</li>
+                        <li id="photo-nav-list-myCollection">我的收藏</li>
+                        <li id="photo-nav-list-myNote">我的帖子</li>
+                        <li id='photo-nav-list-myTask'>我的任务</li>
+                        <li id="photo-nav-list-exit">退出</li>
                     </ul>
                 </div>
             </div>
@@ -424,6 +424,7 @@
             </div>
         </div>
     </section>
+    <script type="text/javascript" src="js/myTools.js"></script>
     <script type="text/javascript" src="js/userInfoJs.js"></script>
 </body>
 </html>

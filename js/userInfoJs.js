@@ -1,20 +1,47 @@
 
-var photo = document.getElementById("personPhoto-img"),
-    tel = document.getElementById("phoneNumber"),
-    name = document.getElementById("personName"),
-    sex = document.getElementsByClassName("sex"),
-    changePwdTel = document.getElementById("changePwd-tel"),
-    changePwdBtn = document.querySelectorAll(".changePwd-btn"),
-    userInfoBtn = document.querySelectorAll(".personInfo-btn"),
-    myNoteBtn = document.querySelectorAll(".myNote-btn"),
-    myCollectionBtn = document.querySelectorAll(".myCollection-btn"),
-    myInfoBtn = document.querySelectorAll(".myInfo-btn");
-    myTaskBtn = document.querySelectorAll(".myTask-btn");
+var photo = document.getElementById("personPhoto-img");
+var tel = document.getElementById("phoneNumber");
+var name = document.getElementById("personName");
+var sex = document.getElementsByClassName("sex");
+var changePwdTel = document.getElementById("changePwd-tel");
+var changePwdBtn = document.querySelectorAll(".changePwd-btn");
+var userInfoBtn = document.querySelectorAll(".personInfo-btn");
+var myNoteBtn = document.querySelectorAll(".myNote-btn");
+var myCollectionBtn = document.querySelectorAll(".myCollection-btn");
+var myInfoBtn = document.querySelectorAll(".myInfo-btn");
+var myTaskBtn = document.querySelectorAll(".myTask-btn");
+var photoInfoBtn = document.getElementById('photo-nav-list-personInfo');
+var photoChangePwdBtn = document.getElementById('photo-nav-list-changePwd');
+var photoMyCollectionBtn = document.getElementById('photo-nav-list-myCollection');
+var photoMyNoteBtn = document.getElementById('photo-nav-list-myNote');
+var photoMyTaskBtn = document.getElementById('photo-nav-list-myTask');
+var photoExitBtn = document.getElementById('photo-nav-list-exit');
 //  .......
 
 initInfo();
 window.location.hash = "userInfoPage";
 window.oldUrl = window.location.hash;
+
+
+
+photoInfoBtn.addEventListener('click',function(){
+    window.location.hash = "userInfoPage";    
+},false);
+photoChangePwdBtn.addEventListener('click',function(){
+    window.location.hash = "changePwdPage";    
+},false);
+photoMyCollectionBtn.addEventListener('click',function(){
+    window.location.hash = "myCollectionPage";    
+},false);
+photoMyNoteBtn.addEventListener('click',function(){
+    window.location.hash = "myNotePage";    
+},false);
+photoMyTaskBtn.addEventListener('click',function(){
+    window.location.hash = "myTaskPage";    
+},false);
+photoExitBtn.addEventListener('click',function(){
+    window.location.href = "index.html";    
+},false);
 
 for(i = 0 ; i < userInfoBtn.length ; i++){
     userInfoBtn[i].addEventListener("click",function(){
@@ -40,19 +67,10 @@ for(i = 0 ; i < userInfoBtn.length ; i++){
 
 //onhashchange事件
 window.addEventListener("hashchange", function () {
-    goPage();
+    $.goPage();
 }, false);
 
-//页面跳转方法
-function goPage() {
-    let nowPage = document.getElementById(window.oldUrl.substring(1));
-    let goPage = document.getElementById(window.location.hash.substring(1));
-    window.oldUrl = window.location.hash;
-    nowPage.classList.remove("cur");
-    nowPage.classList.add("hide");
-    goPage.classList.remove("hide");
-    goPage.classList.add("cur");
-}
+
 
 function initInfo(){
     let name = localStorage.name;

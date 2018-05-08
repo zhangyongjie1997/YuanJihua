@@ -1,6 +1,7 @@
 ((w) => {
     const Tools = {
-        
+
+
         // trim()
         trim(str) {
             if (!str) {
@@ -9,18 +10,6 @@
             return str.trim ?
                 str.trim() :
                 str.replace(/(^\s)|(\s$)/, '');
-        },
-        // addEvent
-        addEvent(target, type, handler) {
-            if (window.addEventListener) {
-                return target.addEventListener(type, handler);
-            } else if (window.attachEvent) {
-                return target.attachEvent(`on${type}`, function () {
-                    handler.call(this, window.event);
-                });
-            } else {
-                return target[`on${type}`] = handler;
-            }
         },
         // ajax
         ajax(option) {
@@ -83,35 +72,10 @@
                 option.finally && option.finally();
             });
         },
-        // html
-        html(ele, value) {
-            if (!value) {
-                return ele.innerHTML;
-            }
-            ele.innerHTML = value;
-        },
-        // text
-        text(ele, value) {
-            if (!value) {
-                return ele.innerText;
-            }
-            ele.innerText = value;
-        },
-        // input --- val
-        val(ele, value) {
-            if (!value) {
-                return ele.value;
-            }
-            ele.value = value;
-        },
         css(ele, value) {
             for (let k in value) {
                 ele.style.cssText += `${k}: ${value[k]};`;
             }
-        },
-        // isString
-        isString(ele) {
-            return typeof ele === 'string';
         },
         //显示登录信息动画
         showMsg(info) {
@@ -139,47 +103,56 @@
                     div.style.top = top + "px";
                 }, 13);
             }
-            // window.location.href = "./loginSuccess.html";
         },
-        /*
-	    @ 调用方法   ajax( 对象实参 );
-	    @ 对象实参需要传的属性：
-		method : 访问方式（选填），默认'get',
-		url : 访问地址（必填）,
-		data : 传输数据（选填），需要传数据时才填,
-		aysn : 是否异步（选填），默认true,
-		success : 请求成功后执行的函数，第一个形参代表返回的数据,
-		error : 请求失败后执行的函数，第一个形参代表错误状态码
-        */
-        ajax(mJson) {
-            var method = mJson.method || 'get';
-            var url = mJson.url;
-            var data = '';
-            var aysn = mJson.aysn || true;
-            var success = mJson.success;
-            var error = mJson.error;
-            if (mJson.data) {
-                var arr = [];
-                for (var key in mJson.data) {
-                    arr.push(key + '=' + mJson.data[key]);
-                };
-                data = arr.join('&');
-            };
-            if (data && method.toLowerCase() == 'get') url += '?' + data;
-            var xhr = new XMLHttpRequest();
-            xhr.open(method, url, aysn);
-            xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
-            xhr.send(data);
-            xhr.onreadystatechange = function () {
-                if (xhr.readyState == 4) {
-                    if (xhr.status >= 200 && xhr.status < 300) {
-                        success && success(xhr.responseText);
-                    } else {
-                        error && error(xhr.status);
-                    };
-                }
-            };
-        },
+        //页面跳转方法
+        goPage() {
+            let nowPage = document.getElementById(window.oldUrl.substring(1));
+            let goPage = document.getElementById(window.location.hash.substring(1));
+            window.oldUrl = window.location.hash;
+            nowPage.classList.remove("cur");
+            nowPage.classList.add("hide");
+            goPage.classList.remove("hide");
+            goPage.classList.add("cur");
+        }
+        //     /*
+        //     @ 调用方法   ajax( 对象实参 );
+        //     @ 对象实参需要传的属性：
+        // 	method : 访问方式（选填），默认'get',
+        // 	url : 访问地址（必填）,
+        // 	data : 传输数据（选填），需要传数据时才填,
+        // 	aysn : 是否异步（选填），默认true,
+        // 	success : 请求成功后执行的函数，第一个形参代表返回的数据,
+        // 	error : 请求失败后执行的函数，第一个形参代表错误状态码
+        //     */
+        //     ajax(mJson) {
+        //         var method = mJson.method || 'get';
+        //         var url = mJson.url;
+        //         var data = '';
+        //         var aysn = mJson.aysn || true;
+        //         var success = mJson.success;
+        //         var error = mJson.error;
+        //         if (mJson.data) {
+        //             var arr = [];
+        //             for (var key in mJson.data) {
+        //                 arr.push(key + '=' + mJson.data[key]);
+        //             };
+        //             data = arr.join('&');
+        //         };
+        //         if (data && method.toLowerCase() == 'get') url += '?' + data;
+        //         var xhr = new XMLHttpRequest();
+        //         xhr.open(method, url, aysn);
+        //         xhr.setRequestHeader('content-type', 'application/x-www-form-urlencoded');
+        //         xhr.send(data);
+        //         xhr.onreadystatechange = function () {
+        //             if (xhr.readyState == 4) {
+        //                 if (xhr.status >= 200 && xhr.status < 300) {
+        //                     success && success(xhr.responseText);
+        //                 } else {
+        //                     error && error(xhr.status);
+        //                 };
+        //             }
+        //         };
+        //     },
     };
     w.$ = Tools;
 })(window);
