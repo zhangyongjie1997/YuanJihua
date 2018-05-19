@@ -45,10 +45,11 @@ window.addEventListener("hashchange", function () {
 
 function initInfo() {
     var nickname = sessionStorage.name;
-    //photo.src = sessionStorage.photo;
+    console.log(nickname);
+    photo.src = sessionStorage.photo;
     tel.innerHTML = sessionStorage.tel;
     changePwdTel.innerHTML = sessionStorage.tel;
-    name.value = nickname;
+    document.getElementById("personName").value = nickname;
     if (sessionStorage.sex == 0) {
         sex[0].checked = true;
         sex[1].checked = false;

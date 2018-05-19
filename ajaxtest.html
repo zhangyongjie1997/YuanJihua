@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+<!-- <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -47,6 +47,36 @@
             console.log("data:"+Obj.data.avatar);
         }
         go();
+    </script>
+</body>
+</html> -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script type="text/javascript">
+        var res;
+        var request = new XMLHttpRequest();
+        var signinData = {
+            "mobile": '12345678911', //  注册手机号
+            "pwd": '123456', //  注册密码
+            "sms_code": "123456",
+        };
+        request.open('POST', 'http://www.ftusix.com/static/data/register.php',true);
+        request.setRequestHeader("Content-Type", "application/json");
+        request.onreadystatechange = function () {
+            if (request.readyState == 4 & request.status == 200) {
+                res = request.responseText;
+                res = JSON.parse(res);
+                console.log(res);
+            }
+        };
+        request.send(JSON.stringify(signinData));
     </script>
 </body>
 </html>

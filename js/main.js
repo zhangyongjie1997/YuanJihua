@@ -30,7 +30,7 @@ window.addEventListener("hashchange", function () {
     $.goPage();
 }, false);
 
-setInterval(function () {                         //13ms获取一次
+setInterval(function () {                      //不断获取轮播图大小，来保证当窗口缩小时正常   
     window.a = document.getElementById('wrap');
 }, 13);
 

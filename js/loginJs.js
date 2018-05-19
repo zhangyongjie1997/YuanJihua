@@ -5,6 +5,8 @@ var navsigninBtn = document.getElementById("nav-signIn");
 var navloginBtn = document.getElementById("nav-login");
 var signinNow = document.getElementById("signinNow");
 var alredySignIn = document.getElementById("alredySignIn");
+var userName = document.getElementById("username");
+var passWord = document.getElementById("password");
 //............................................................................
 window.location.hash = "loginPage";
 window.oldUrl = window.location.hash;
@@ -33,16 +35,16 @@ signinBtn.addEventListener("click", function () {
         var signInName = document.getElementById("username-signIn");
         var msgCode = document.getElementById("code-number");
         var signinData = {
-            "mobile": signInName.value.substring(1), //  注册手机号
+            "mobile": signInName.value, //  注册手机号
             "pwd": signInPwd.value, //  注册密码
             "sms_code": msgCode.value,
         };
-        request.open('POST', 'http://yjhapi.agxx.club/iweb/regist/index');
+        request.open('POST', 'http://www.ftusix.com/static/data/register.php',true);
         request.setRequestHeader("Content-Type", "application/json");
         request.onreadystatechange = function () {
             if (request.readyState == 4 & request.status == 200) {
                 res = request.responseText;
-                res = JSON.parse(res.substring(1));
+                res = JSON.parse(res);
                 ifSignin(res);
             }
         };
@@ -52,11 +54,7 @@ signinBtn.addEventListener("click", function () {
 
 //登录按钮事件
 loginBtn.addEventListener("click", function () {
-    window.location.href = "personInfo.html";
     
-    var userName = document.getElementById("username");
-    var passWord = document.getElementById("password");
-
     //判断用户名密码是否为空
     if (userName.value == "" || passWord.value == "") {
         $.showMsg("请输入用户名和密码");
@@ -69,21 +67,27 @@ loginBtn.addEventListener("click", function () {
             "pwd": passWord.value,
         };
         loginData = JSON.stringify(loginData);
-        request.open('POST', 'http://yjhapi.agxx.club/iweb/login/check');
+        request.open('POST', 'http://www.ftusix.com/static/data/login.php',true);
         request.setRequestHeader("Content-Type", "application/json");
         request.onreadystatechange = function () {
             if (request.readyState == 4 & request.status == 200) {
                 res = request.responseText;
-                res = JSON.parse(res.substring(1));
+                res = JSON.parse(res.trim());
                 //登录成功判断
                 ifLogin(res);
-                console.log(res);
             }
         };
         request.send(loginData);
     }
 }, false);
 
+//判断保存的用户账号,自动填充登录账号
+(function () {
+    if(localStorage.oldUserName){
+        userName.value = localStorage.oldUserName;
+        passWord.value = '546456';
+    }
+})();
 //判断是否注册成功
 function ifSignin(obj){
     if(obj.status == 1){
@@ -96,8 +100,10 @@ function ifSignin(obj){
 //判断登录是否成功
 function ifLogin(obj) {
     if (obj.status == 1) {
-
-        exUserInfo(obj.data);
+        console.log(obj.data[0]);
+        console.log(obj.data[0].avatar);
+        exUserInfo(obj.data[0]);
+        //window.location.href = "personInfo.html";
     } else {
         $.showMsg(obj.info);
     }
@@ -105,6 +111,7 @@ function ifLogin(obj) {
 
 //填写用户信息
 function exUserInfo(data) {
+    localStorage.setItem("oldUserName",userName.value);//保存此次登录的账号
     sessionStorage.setItem("tel",data.mobile);
     sessionStorage.setItem("photo",data.avatar);
     sessionStorage.setItem("sex",data.sex);
