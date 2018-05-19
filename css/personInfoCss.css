@@ -141,7 +141,17 @@
 }
 
 /*-----------------修改密码界面--------------------*/
+#changePwd-getCode{
+    width: 100px;
+    height: 30px;
+    background-color: rgb(6, 180, 29);
+    text-align: center;
+    line-height: 30px;
+    margin-left: 20px;
+    border-radius: 5%;
+    color: white;
 
+}
 /*--------------------我的帖子界面------------------------*/
 
 .myNote {
