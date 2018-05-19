@@ -1,11 +1,36 @@
 var navPersonInfoBtn = document.getElementById('nav-personInfo');
+var mainHotBtn = document.getElementsByClassName('main-hot-btn');
+var mainHtmlBtn = document.getElementsByClassName('main-html-btn');
+var mainCssBtn = document.getElementsByClassName('main-css-btn');
+var photoPersonInfoBtn = document.getElementById('photo-nav-list-personInfo');
+var photoChangePwdBtn = document.getElementById('photo-nav-list-changePwd');
+var photoMyCollectionBtn = document.getElementById('photo-nav-list-myCollection');
+var photoMyNoteBtn = document.getElementById('photo-nav-list-myNote');
+var photoMyTaskBtn = document.getElementById('photo-nav-list-myTask');
+var photoExitBtn = document.getElementById('photo-nav-list-exit');
+//.......................................................................................
+window.location.hash = "mainHotSectionPage";
+window.oldUrl = window.location.hash;
 
+$.clickHref(navPersonInfoBtn, "personInfo.html");
+$.clickHref(photoPersonInfoBtn, "personInfo.html");
+$.clickHref(photoChangePwdBtn, "personInfo.html","changePwdPage");
+$.clickHash(photoMyCollectionBtn, "myCollectionPage");
+$.clickHash(photoMyNoteBtn, "myNotePage");
+$.clickHash(photoMyTaskBtn, "myTaskPage");
+$.clickHref(photoExitBtn, "index.html");
 
-navPersonInfoBtn.addEventListener('click',function () {
-    window.location.href = "personInfo.html";    
-  },false);
+for (let i = 0; i < mainHotBtn.length; i++) {
+    $.clickHash(mainHotBtn[i], "mainHotSectionPage");
+    $.clickHash(mainHtmlBtn[i], "mainHtmlPage");
+    $.clickHash(mainCssBtn[i], "mainCssPage");
+}
+//onhashchange事件
+window.addEventListener("hashchange", function () {
+    $.goPage();
+}, false);
 
-setInterval(function () {
+setInterval(function () {                         //13ms获取一次
     window.a = document.getElementById('wrap');
 }, 13);
 

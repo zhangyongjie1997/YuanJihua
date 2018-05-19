@@ -4,50 +4,22 @@ var signinBtn = document.getElementById("signin-btn");
 var navsigninBtn = document.getElementById("nav-signIn");
 var navloginBtn = document.getElementById("nav-login");
 var signinNow = document.getElementById("signinNow");
-var div = document.getElementById("warning");
-var userInfoBtn = document.getElementById("userInfo-btn");
-var personInfobtn = document.getElementsByClassName("personInfo-btn");
-var changePwdbtn = document.getElementsByClassName("changePwd-btn");
-var myArticlebtn = document.getElementsByClassName("myArticle-btn");
 var alredySignIn = document.getElementById("alredySignIn");
+//............................................................................
 window.location.hash = "loginPage";
 window.oldUrl = window.location.hash;
 
-//为信息界面按钮添加事件
-for(let i=0;i<personInfobtn.length;i++){
-    personInfobtn[i].addEventListener("click",function(){
-        window.location.hash = "userInfoPage";
-    },false);
-}
-for(let i=0;i<changePwdbtn.length;i++){
-    personInfobtn[i].addEventListener("click",function(){
-        window.location.hash = "changePwdPage";
-    },false);
-}
-for(let i=0;i<myArticlebtn.length;i++){
-    personInfobtn[i].addEventListener("click",function(){
-        window.location.hash = "myArticlePage";
-    },false);
-}
 
-alredySignIn.addEventListener("click",function(){
-    window.location.hash = "loginPage";
-},false);
+$.clickHash(alredySignIn, "loginPage");
 
 //立即注册按钮事件
-signinNow.addEventListener("click",function(){
-    window.location.hash = "signInPage";
-},false);
+$.clickHash(signinNow, "signInPage");
 
 //导航栏登录按钮事件
-navloginBtn.addEventListener("click", function () {
-    window.location.hash = "loginPage";
-}, false);
+$.clickHash(navloginBtn, "loginPage");
 
 //导航栏注册按钮事件
-navsigninBtn.addEventListener("click", function () {
-    window.location.hash = "signInPage";
-}, false);
+$.clickHash(navsigninBtn, "signInPage");
 
 //注册按钮事件
 signinBtn.addEventListener("click", function () {
@@ -121,8 +93,6 @@ function ifSignin(obj){
         $.showMsg(obj.info);
     }
 }
-
-
 //判断登录是否成功
 function ifLogin(obj) {
     if (obj.status == 1) {
@@ -135,26 +105,17 @@ function ifLogin(obj) {
 
 //填写用户信息
 function exUserInfo(data) {
-    localStorage.setItem("tel",data.mobile);
-    localStorage.setItem("photo",data.avatar);
-    localStorage.setItem("sex",data.sex);
-    localStorage.setItem("name",data.nick_name);
+    sessionStorage.setItem("tel",data.mobile);
+    sessionStorage.setItem("photo",data.avatar);
+    sessionStorage.setItem("sex",data.sex);
+    sessionStorage.setItem("name",data.nick_name);
 }
 
 
 
 //onhashchange事件
 window.addEventListener("hashchange", function () {
-    goPage();
+    $.goPage();
 }, false);
 
-//页面跳转方法
-function goPage() {
-    let nowPage = this.document.getElementById(window.oldUrl.substring(1));
-    let goPage = this.document.getElementById(window.location.hash.substring(1));
-    window.oldUrl = window.location.hash;
-    nowPage.classList.remove("cur");
-    nowPage.classList.add("hide");
-    goPage.classList.remove("hide");
-    goPage.classList.add("cur");
-}
+

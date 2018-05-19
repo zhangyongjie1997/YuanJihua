@@ -1,4 +1,3 @@
-
 var photo = document.getElementById("personPhoto-img");
 var tel = document.getElementById("phoneNumber");
 var name = document.getElementById("personName");
@@ -16,73 +15,41 @@ var photoMyCollectionBtn = document.getElementById('photo-nav-list-myCollection'
 var photoMyNoteBtn = document.getElementById('photo-nav-list-myNote');
 var photoMyTaskBtn = document.getElementById('photo-nav-list-myTask');
 var photoExitBtn = document.getElementById('photo-nav-list-exit');
-var mian = document.getElementById('nav-main');
-//  .......
-
+var main = document.getElementById('nav-main');
+//  ...............................................................................
 initInfo();
 window.location.hash = "userInfoPage";
 window.oldUrl = window.location.hash;
 
+$.clickHref(main, "main.html");
+$.clickHash(photoInfoBtn, "userInfoPage");
+$.clickHash(photoChangePwdBtn, "changePwdPage");
+$.clickHash(photoMyCollectionBtn, "myCollectionPage");
+$.clickHash(photoMyNoteBtn, "myNotePage");
+$.clickHash(photoMyTaskBtn, "myTaskPage");
+$.clickHref(photoExitBtn, "index.html");
 
-mian.addEventListener('click',function () {
-    window.location.href = "main.html";
-  },false);
-photoInfoBtn.addEventListener('click',function(){
-    window.location.hash = "userInfoPage";    
-},false);
-photoChangePwdBtn.addEventListener('click',function(){
-    window.location.hash = "changePwdPage";    
-},false);
-photoMyCollectionBtn.addEventListener('click',function(){
-    window.location.hash = "myCollectionPage";    
-},false);
-photoMyNoteBtn.addEventListener('click',function(){
-    window.location.hash = "myNotePage";    
-},false);
-photoMyTaskBtn.addEventListener('click',function(){
-    window.location.hash = "myTaskPage";    
-},false);
-photoExitBtn.addEventListener('click',function(){
-    window.location.href = "index.html";    
-},false);
-
-for(i = 0 ; i < userInfoBtn.length ; i++){
-    userInfoBtn[i].addEventListener("click",function(){
-        window.location.hash = "userInfoPage";
-    },false);
-    changePwdBtn[i].addEventListener("click",function(){
-        window.location.hash = "changePwdPage";
-    },false);
-    myNoteBtn[i].addEventListener("click",function(){
-        window.location.hash = "myNotePage";
-    },false);
-    myCollectionBtn[i].addEventListener("click",function(){
-        window.location.hash = "myCollectionPage";
-    },false);
-    myInfoBtn[i].addEventListener("click",function(){
-        window.location.hash = "myInfoPage";
-    },false);
-    myTaskBtn[i].addEventListener("click",function(){
-        window.location.hash = "myTaskPage";
-    },false);
+for (let i = 0; i < userInfoBtn.length; i++) {
+    $.clickHash(userInfoBtn[i], "userInfoPage");
+    $.clickHash(changePwdBtn[i], "changePwdPage");
+    $.clickHash(myNoteBtn[i], "myNotePage");
+    $.clickHash(myCollectionBtn[i], "myCollectionPage");
+    $.clickHash(myInfoBtn[i], "myInfoPage");
+    $.clickHash(myTaskBtn[i], "myTaskPage");
 }
-
 
 //onhashchange事件
 window.addEventListener("hashchange", function () {
     $.goPage();
 }, false);
 
-
-
-function initInfo(){
-    var nickname = localStorage.name;
-    console.log(localStorage.name);
-    //photo.src = localStorage.photo;
-    tel.innerHTML = localStorage.tel;
-    changePwdTel.innerHTML = localStorage.tel;
+function initInfo() {
+    var nickname = sessionStorage.name;
+    //photo.src = sessionStorage.photo;
+    tel.innerHTML = sessionStorage.tel;
+    changePwdTel.innerHTML = sessionStorage.tel;
     name.value = nickname;
-    if (localStorage.sex == 0) {
+    if (sessionStorage.sex == 0) {
         sex[0].checked = true;
         sex[1].checked = false;
     } else {
@@ -90,5 +57,3 @@ function initInfo(){
         sex[0].checked = false;
     }
 }
-
- 
