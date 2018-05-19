@@ -52,7 +52,7 @@ window.addEventListener("hashchange", function () {
 function initInfo() {
     var nickname = sessionStorage.name;
     console.log(nickname);
-    photo.src = sessionStorage.photo;
+    photo.src = 'http://www.ftusix.com/static/data/'+sessionStorage.photo;
     tel.innerHTML = sessionStorage.tel;
     changePwdTel.innerHTML = sessionStorage.tel;
     document.getElementById("personName").value = nickname;
