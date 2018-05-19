@@ -1,21 +1,22 @@
-var photo = document.getElementById("personPhoto-img");
-var tel = document.getElementById("phoneNumber");
-var name = document.getElementById("personName");
-var sex = document.getElementsByClassName("sex");
-var changePwdTel = document.getElementById("changePwd-tel");
-var changePwdBtn = document.querySelectorAll(".changePwd-btn");
-var userInfoBtn = document.querySelectorAll(".personInfo-btn");
-var myNoteBtn = document.querySelectorAll(".myNote-btn");
-var myCollectionBtn = document.querySelectorAll(".myCollection-btn");
-var myInfoBtn = document.querySelectorAll(".myInfo-btn");
-var myTaskBtn = document.querySelectorAll(".myTask-btn");
-var photoInfoBtn = document.getElementById('photo-nav-list-personInfo');
-var photoChangePwdBtn = document.getElementById('photo-nav-list-changePwd');
-var photoMyCollectionBtn = document.getElementById('photo-nav-list-myCollection');
-var photoMyNoteBtn = document.getElementById('photo-nav-list-myNote');
-var photoMyTaskBtn = document.getElementById('photo-nav-list-myTask');
-var photoExitBtn = document.getElementById('photo-nav-list-exit');
-var main = document.getElementById('nav-main');
+const photo = document.getElementById("personPhoto-img");
+const tel = document.getElementById("phoneNumber");
+const name = document.getElementById("personName");
+const sex = document.getElementsByClassName("sex");
+const changePwdTel = document.getElementById("changePwd-tel");
+const changePwdBtn = document.querySelectorAll(".changePwd-btn");
+const userInfoBtn = document.querySelectorAll(".personInfo-btn");
+const myNoteBtn = document.querySelectorAll(".myNote-btn");
+const myCollectionBtn = document.querySelectorAll(".myCollection-btn");
+const myInfoBtn = document.querySelectorAll(".myInfo-btn");
+const myTaskBtn = document.querySelectorAll(".myTask-btn");
+const photoInfoBtn = document.getElementById('photo-nav-list-personInfo');
+const photoChangePwdBtn = document.getElementById('photo-nav-list-changePwd');
+const photoMyCollectionBtn = document.getElementById('photo-nav-list-myCollection');
+const photoMyNoteBtn = document.getElementById('photo-nav-list-myNote');
+const photoMyTaskBtn = document.getElementById('photo-nav-list-myTask');
+const photoExitBtn = document.getElementById('photo-nav-list-exit');
+const main = document.getElementById('nav-main');
+const updateInfoBtn = document.getElementById('updateInfo-btn');
 //  ...............................................................................
 initInfo();
 window.location.hash = "userInfoPage";
@@ -37,6 +38,11 @@ for (let i = 0; i < userInfoBtn.length; i++) {
     $.clickHash(myInfoBtn[i], "myInfoPage");
     $.clickHash(myTaskBtn[i], "myTaskPage");
 }
+
+//更新个人信息按钮(提交)
+updateInfoBtn.addEventListener('click',function(){
+    
+},false);
 
 //onhashchange事件
 window.addEventListener("hashchange", function () {

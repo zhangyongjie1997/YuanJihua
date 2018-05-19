@@ -74,13 +74,45 @@
                 window.location.hash = newHash;
             }, false);
         },
-        clickHref(btn, newHref,newHash) {
+        clickHref(btn, newHref, newHash) {
             btn.addEventListener("click", function () {
                 window.location.href = newHref;
                 window.location.hash = newHash;
             }, false);
         },
-
+        // ajax
+        ajax(mJson) {
+            /*
+                method : 访问方式（选填），默认'get',
+		        url : 访问地址（必填）,
+		        data : 传输数据（选填），需要传数据时才填,
+		        aysn : 是否异步（选填），默认true,
+		        success : 请求成功后执行的函数，第一个形参代表返回的数据,
+		        error : 请求失败后执行的函数，第一个形参代表错误状态码
+            */
+            var res;
+            var request = new XMLHttpRequest();
+            var method = mJson.method || 'get';
+            var url = mJson.url;
+            var data = '';
+            var aysn = mJson.aysn || true;
+            var success = mJson.success;
+            var error = mJson.error;
+            if (mJson.data) {
+                data = JSON.stringify(mJson.data);
+            }
+            request.open(method, url, aysn);
+            request.setRequestHeader("Content-Type", "application/json");
+            request.onreadystatechange = function () {
+                if (request.readyState == 4 & request.status == 200) {
+                    res = request.responseText;
+                    success && success(request.responseText);
+                } else {
+                    error && error(request.status);
+                }
+            };
+            request.send(data);
+        },
     };
     w.$ = Tools;
 })(window);

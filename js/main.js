@@ -1,13 +1,13 @@
-var navPersonInfoBtn = document.getElementById('nav-personInfo');
-var mainHotBtn = document.getElementsByClassName('main-hot-btn');
-var mainHtmlBtn = document.getElementsByClassName('main-html-btn');
-var mainCssBtn = document.getElementsByClassName('main-css-btn');
-var photoPersonInfoBtn = document.getElementById('photo-nav-list-personInfo');
-var photoChangePwdBtn = document.getElementById('photo-nav-list-changePwd');
-var photoMyCollectionBtn = document.getElementById('photo-nav-list-myCollection');
-var photoMyNoteBtn = document.getElementById('photo-nav-list-myNote');
-var photoMyTaskBtn = document.getElementById('photo-nav-list-myTask');
-var photoExitBtn = document.getElementById('photo-nav-list-exit');
+const navPersonInfoBtn = document.getElementById('nav-personInfo');
+const mainHotBtn = document.getElementsByClassName('main-hot-btn');
+const mainHtmlBtn = document.getElementsByClassName('main-html-btn');
+const mainCssBtn = document.getElementsByClassName('main-css-btn');
+const photoPersonInfoBtn = document.getElementById('photo-nav-list-personInfo');
+const photoChangePwdBtn = document.getElementById('photo-nav-list-changePwd');
+const photoMyCollectionBtn = document.getElementById('photo-nav-list-myCollection');
+const photoMyNoteBtn = document.getElementById('photo-nav-list-myNote');
+const photoMyTaskBtn = document.getElementById('photo-nav-list-myTask');
+const photoExitBtn = document.getElementById('photo-nav-list-exit');
 //.......................................................................................
 window.location.hash = "mainHotSectionPage";
 window.oldUrl = window.location.hash;
@@ -35,9 +35,9 @@ setInterval(function () {                      //不断获取轮播图大小，�
 }, 13);
 
 (function () {
-    var lbtn = document.getElementById("lbtn");
-    var rbtn = document.getElementById("rbtn");
-    var img = document.getElementById("img-box").getElementsByTagName("li");
+    const lbtn = document.getElementById("lbtn");
+    const rbtn = document.getElementById("rbtn");
+    const img = document.getElementById("img-box").getElementsByTagName("li");
     var n = 0;
     var x = 0;
     img[n].style.display = 'block';
