@@ -8,13 +8,40 @@ const photoMyCollectionBtn = document.getElementById('photo-nav-list-myCollectio
 const photoMyNoteBtn = document.getElementById('photo-nav-list-myNote');
 const photoMyTaskBtn = document.getElementById('photo-nav-list-myTask');
 const photoExitBtn = document.getElementById('photo-nav-list-exit');
+const navPhoto = document.getElementById("nav-photo");
+const exit = document.getElementById('photo-nav-list-exit');
+
 //.......................................................................................
 window.location.hash = "mainHotSectionPage";
 window.oldUrl = window.location.hash;
 
+window.onload = function () {  
+    $.ajax({
+        method: 'post',
+        url: 'http://www.ftusix.com/static/data/topicList.php',
+        data: {
+            "type":'0',    //类型，0为全部 ，如果index为true则1.html 2.php 3.java     index为false则 1.经验分享 2.入门学习 3.成果分享,
+            "sort":"new",  //排序
+            "page":'1',   //页码 null则为第一页默认页
+            "index":'ture',  //是否为首页列表
+
+
+        },
+        aysn: 'ture',
+        success: function (value) {
+            console.log(value);
+        },
+        error: function (value) {
+            console.log(value);
+        }
+
+    });
+};
+
 $.clickHref(navPersonInfoBtn, "personInfo.html");
+$.clickHref(exit, "login.html");
 $.clickHref(photoPersonInfoBtn, "personInfo.html");
-$.clickHref(photoChangePwdBtn, "personInfo.html","changePwdPage");
+$.clickHref(photoChangePwdBtn, "personInfo.html", "changePwdPage");
 $.clickHash(photoMyCollectionBtn, "myCollectionPage");
 $.clickHash(photoMyNoteBtn, "myNotePage");
 $.clickHash(photoMyTaskBtn, "myTaskPage");
@@ -25,12 +52,15 @@ for (let i = 0; i < mainHotBtn.length; i++) {
     $.clickHash(mainHtmlBtn[i], "mainHtmlPage");
     $.clickHash(mainCssBtn[i], "mainCssPage");
 }
+
+var photoUrl = 'http://www.ftusix.com/static/data/upload/' + sessionStorage.photo;
+navPhoto.style.backgroundImage = "url(" + photoUrl + ")";
 //onhashchange事件
 window.addEventListener("hashchange", function () {
     $.goPage();
 }, false);
 
-setInterval(function () {                      //不断获取轮播图大小，来保证当窗口缩小时正常   
+setInterval(function () { //不断获取轮播图大小，来保证当窗口缩小时正常   
     window.a = document.getElementById('wrap');
 }, 13);
 

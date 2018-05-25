@@ -7,22 +7,35 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
 </head>
+<br />
+<b>Recoverable fatal error</b>: Object of class stdClass could not be converted to string in
+<b>/www/users/HA435163/WEB/static/data/update.php</b> on line
+<b>24</b>
+<br />
 
 <body>
     <script type="text/javascript">
         ajax({
             method: 'post',
-            url: 'http://www.ftusix.com/static/data/login.php',
+            url: 'http://www.ftusix.com/static/data/update.php',
             data: {
-                "mobile": '13333333333',
-                "pwd": "546456",
+                "sex": '0', //  性别
+                "nick_name": '123', //  昵称
+                "token": 'FA0653DC66E8E2AE9B566A151648E982', //  token   用户token
             },
             aysn: 'ture',
-            success: function(value){
+            success: function (value) {
+                if (value.status == '1') {
+                    alert();
+                    location.reload();
+                }
+            },
+            error: function (value) {
                 console.log(value);
             }
 
         });
+
         function ajax(mJson) {
             /*
                 method : 访问方式（选填），默认'get',
@@ -40,7 +53,7 @@
             var aysn = mJson.aysn || true;
             var success = mJson.success;
             var error = mJson.error;
-            if(mJson.data){
+            if (mJson.data) {
                 data = JSON.stringify(mJson.data);
             }
             request.open(method, url, aysn);

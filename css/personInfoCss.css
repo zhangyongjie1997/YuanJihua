@@ -94,8 +94,8 @@
     box-sizing: border-box;
     color: #1f2d3d;
     font-size: inherit;
-    height: 36px;
-    line-height: 1;
+    height: 30px;
+    line-height: 30px;
     outline: 0;
     padding: 3px 10px;
     transition: border-color .2s cubic-bezier(.645, .045, .355, 1);
@@ -140,6 +140,9 @@
     background-color: red;
 }
 
+.load-img{
+    display: none;
+}
 /*-----------------修改密码界面--------------------*/
 #changePwd-getCode{
     width: 100px;

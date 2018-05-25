@@ -34,8 +34,7 @@
                     </li>
                     <li class="nav-menu-items pointer">
                         <a href="javascript:void(0)">文章</a>
-                    </li>
-                    </li>
+                    </li> 
                     <li class="nav-menu-items pointer" id="nav-write">
                         <a href="javascript:void(0)">写文章</a>
                     </li>
@@ -58,7 +57,7 @@
     </header>
 
     <!-- 个人信息 -->
-    <section id="userInfoPage" class="userInfoPage hide">
+    <section id="userInfoPage" class="userInfoPage cur">
         <div id="userInfoList" class="fl">
             <nav id="userInfo-nav">
                 <a href="javascript:void(0)" class="personInfo-btn" style="color: red;">我的信息</a>
@@ -75,6 +74,9 @@
                 <div id="personPhoto" class="items">
                     <img id="personPhoto-img" src="" alt="" width="60px" height="60px" />
                     <span id="changePhoto" class="pointer">更换头像</span>
+                    <form id="photoForm">
+                        <input type="file" accept="image/jpg,image/jpeg,image/png" class="load-img" name="avator"/>
+                    </form>
                 </div>
                 <div id="tel" class="items tel">
                     <label>注册手机号</label>
@@ -119,15 +121,15 @@
                 </div>
                 <div id="name" class="items">
                     <label>新密码</label>
-                    <input type="text" id="newPwd" class="userInfoCon-input" />
+                    <input type="password" id="newPwd" class="userInfoCon-input" placeholder="请输入新密码" />
                 </div>
                 <div id="name" class="items">
                     <label>确认密码</label>
-                    <input type="text" id="newPwd2" class="userInfoCon-input" />
+                    <input type="password" id="newPwd2" class="userInfoCon-input" placeholder="请确认密码" />
                 </div>
                 <div id="name" class="items">
                     <label>验证码</label>
-                    <input type="text" id="changePwd-code" class="userInfoCon-input" />
+                    <input type="text" id="changePwd-code" class="userInfoCon-input" placeholder="请输入验证码" />
                     <span id="changePwd-getCode" class="get-code pointer">获取验证码</span>
                 </div>
                 <div id="changePwd-btn" class="submitUserInfo pointer">提交</div>
@@ -385,7 +387,7 @@
     </section>
 
     <!-- 我的消息 -->
-    <section id="myInfoPage" class="userInfoPage cur">
+    <section id="myInfoPage" class="userInfoPage hide">
         <div id="userInfoList" class="fl">
             <nav id="userInfo-nav">
                 <a href="javascript:void(0)" class="personInfo-btn">我的信息</a>
@@ -401,10 +403,10 @@
                 <p>
                     <img src="images/info.svg" alt="" width="33px;">
                 </p>
-             </div>   
+            </div>
         </div>
     </section>
-    
+
     <!-- 我的任务 -->
     <section id="myTaskPage" class="userInfoPage hide">
         <div id="userInfoList" class="fl">
@@ -420,11 +422,12 @@
         <div class="userInfoLabel userInfoCon fl" id="userInfoCon">
             <div id="userInfoPage/personInfo" class="personInfoPage">
                 <p id="userInfoCon-title">我的任务</p>
-                
+
             </div>
         </div>
     </section>
     <script type="text/javascript" src="js/myTools.js"></script>
     <script type="text/javascript" src="js/userInfoJs.js"></script>
 </body>
+
 </html>

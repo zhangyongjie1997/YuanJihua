@@ -32,7 +32,9 @@
         },
         //显示登录信息动画
         showMsg(info) {
-            let div = document.getElementById("warning");
+            console.log(info);
+            var msg = info || 'none';
+            var div = document.getElementById("warning");
             if (!top) {
                 var top = -45;
                 console.log("进入动画函数");
@@ -93,25 +95,96 @@
             var res;
             var request = new XMLHttpRequest();
             var method = mJson.method || 'get';
+            console.log(method);
             var url = mJson.url;
+            console.log(url);
             var data = '';
             var aysn = mJson.aysn || true;
+            console.log(aysn);
             var success = mJson.success;
             var error = mJson.error;
             if (mJson.data) {
                 data = JSON.stringify(mJson.data);
             }
+            console.log(data);
             request.open(method, url, aysn);
             request.setRequestHeader("Content-Type", "application/json");
             request.onreadystatechange = function () {
-                if (request.readyState == 4 & request.status == 200) {
+                if (request.status == 200 & request.readyState == 4) {
                     res = request.responseText;
-                    success && success(request.responseText);
-                } else {
-                    error && error(request.status);
+                    console.log("请求成功" + res)
+                    success && success(res);
                 }
             };
             request.send(data);
+        },
+        //填写用户信息
+        exUserInfo(data) {
+            localStorage.setItem("oldUserName", userName.value); //保存此次登录的账号
+            sessionStorage.setItem("token", data.token);
+            sessionStorage.setItem("user_id", data.user_id);
+            sessionStorage.setItem("tel", data.mobile);
+            sessionStorage.setItem("photo", data.avatar);
+            sessionStorage.setItem("sex", data.sex);
+            sessionStorage.setItem("name", data.nick_name);
+        },
+        ifStatus(value, btn) {
+            try {
+                var obj = JSON.parse(value.trim());
+                switch (btn) {
+                    case 'login':
+                        if (obj.status == 1) {
+                            console.log(obj.data[0] + '登录成功');
+                            console.log(obj.data[0].avatar);
+                            this.exUserInfo(obj.data[0]);
+                            window.location.href = "personInfo.html";
+                        } else {
+                            $.showMsg(obj.info);
+                        }
+                        break;
+                    case 'signin':
+                        if (obj.status == 1) {
+                            $.showMsg("注册成功,请登录");
+                            window.location.hash = "loginPage";
+                        } else {
+                            $.showMsg(obj.info);
+                        }
+                        break;
+                    case 'updateInfo':
+                        if (obj.status == 1) {
+                            alert('修改成功');
+                            this.exUserInfo(obj.data[0])
+                        } else {
+                            alert('修改失败');
+                            $.showMsg(obj.info);
+                        }
+                        break;
+                    case 'changepwd':
+                        if (obj.status == 1) {
+                            $.showMsg(obj.info);
+                        } else {
+                            $.showMsg(obj.info);
+                        }
+                        break;
+                    case 'changepho':
+                        if (obj.status == 1) {
+                            this.exUserInfo;
+                            console.log("修改成功");
+                        } else {
+                            console.log(obj.info);
+                        }
+                        break;
+                    case 'mynote':
+                        if (obj.status == 1) {
+                            console.log("wenzhang成功");
+                        } else {
+                            console.log(obj.info);
+                        }
+                        break;
+                }
+            } catch {
+                console.log(value);
+            }
         },
     };
     w.$ = Tools;

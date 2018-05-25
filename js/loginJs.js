@@ -33,19 +33,20 @@ signinBtn.addEventListener("click", function () {
         const msgCode = document.getElementById("code-number");
         $.ajax({
             method: 'post',
-            url: 'http://www.ftusix.com/static/data/register.php',
+            url: 'http://www.ftusix.com/static/data/reset.php',
             aysn: 'ture',
             data: {
                 "mobile": signInName.value, //  注册手机号
-                "pwd": signInPwd.value, //  注册密码
+                "pwd": pwd.value, //  注册密码
+                "pwd2": pwd2.value, //  注册密码
                 "sms_code": msgCode.value,
             },
             aysn: 'ture',
             success: function (value) {
                 console.log(value);
-                var res = JSON.parse(value.trim());
-                //注册成功判断
-                ifSignin(res);
+                
+                //ifSignin(res);
+                $.ifStatus(value,'signin');
             }
 
         });
@@ -58,8 +59,7 @@ loginBtn.addEventListener("click", function () {
     //判断用户名密码是否为空
     if (userName.value == "" || passWord.value == "") {
         $.showMsg("请输入用户名和密码");
-    } else {
-        //如果用户名密码不为空则发送请求
+    } else {//如果用户名密码不为空则发送请求
         $.ajax({
             method: 'post',
             url: 'http://www.ftusix.com/static/data/login.php',
@@ -69,10 +69,7 @@ loginBtn.addEventListener("click", function () {
             },
             aysn: 'ture',
             success: function (value) {
-                console.log(value);
-                var res = JSON.parse(value.trim());
-                //登录成功判断
-                ifLogin(res);
+                $.ifStatus(value,'login');
             }
 
         });
@@ -100,21 +97,14 @@ function ifLogin(obj) {
     if (obj.status == 1) {
         console.log(obj.data[0] + '登录成功');
         console.log(obj.data[0].avatar);
-        exUserInfo(obj.data[0]);
-        //window.location.href = "personInfo.html";
+        $.exUserInfo(obj.data[0]);
+        window.location.href = "personInfo.html";
     } else {
         $.showMsg(obj.info);
     }
 }
 
-//填写用户信息
-function exUserInfo(data) {
-    localStorage.setItem("oldUserName", userName.value); //保存此次登录的账号
-    sessionStorage.setItem("tel", data.mobile);
-    sessionStorage.setItem("photo", data.avatar);
-    sessionStorage.setItem("sex", data.sex);
-    sessionStorage.setItem("name", data.nick_name);
-}
+
 
 
 
