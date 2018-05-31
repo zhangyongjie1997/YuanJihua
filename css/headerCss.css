@@ -64,6 +64,7 @@ header #view #logo h2{
     -ms-transition: all 0.2s;
     transition: all 0.2s;
 }
+
 .nav-menu-items:hover{
     border-bottom: 3px solid #ea0f2d !important;
 }
