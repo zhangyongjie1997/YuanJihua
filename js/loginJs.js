@@ -82,6 +82,9 @@ loginBtn.addEventListener("click", function () {
         userName.value = localStorage.oldUserName;
         passWord.value = '546456';
     }
+    if(sessionStorage.oHash){
+        window.location.hash = sessionStorage.oHash;
+    }
 })();
 //判断是否注册成功
 function ifSignin(obj) {
@@ -98,6 +101,7 @@ function ifLogin(obj) {
         console.log(obj.data[0] + '登录成功');
         console.log(obj.data[0].avatar);
         $.exUserInfo(obj.data[0]);
+        sessionStorage.oHash = '#';
         window.location.href = "personInfo.html";
     } else {
         $.showMsg(obj.info);

@@ -73,13 +73,15 @@
         },
         clickHash(btn, newHash) {
             btn.addEventListener("click", function () {
+                sessionStorage.setItem('oHash',newHash);
                 window.location.hash = newHash;
             }, false);
         },
         clickHref(btn, newHref, newHash) {
             btn.addEventListener("click", function () {
+                sessionStorage.oHash = '';
                 window.location.href = newHref;
-                window.location.hash = newHash;
+               // window.location.hash = newHash;
             }, false);
         },
         // ajax
@@ -137,6 +139,7 @@
                             console.log(obj.data[0] + '登录成功');
                             console.log(obj.data[0].avatar);
                             this.exUserInfo(obj.data[0]);
+                            sessionStorage.oHash = '';
                             window.location.href = "personInfo.html";
                         } else {
                             $.showMsg(obj.info);

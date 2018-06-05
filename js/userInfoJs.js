@@ -28,6 +28,9 @@ window.location.hash = "userInfoPage";
 window.oldUrl = window.location.hash;
 
 window.onload = function(){
+    if(sessionStorage.oHash){
+        window.location.hash = this.sessionStorage.oHash;
+    }
     console.log(sessionStorage.user_id);
     $.ajax({
         method: 'get',
